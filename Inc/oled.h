@@ -18,6 +18,13 @@
 #define COM 0x00          // OLED 指令（禁止修改）
 #define DAT 0x40          // OLED 数据（禁止修改）
 
+
+typedef struct typFNT_GB16
+{
+    unsigned char index[2];
+    unsigned char Msk[32];
+};
+
 extern void WriteCmd(unsigned char I2C_Command); //写命令
 extern void WriteDat(unsigned char I2C_Data);    //写数据
 extern void OLED_Init(void);                     //初始化

@@ -1,5 +1,11 @@
-#ifndef __ASCII_H
-#define __ASCII_H
+#ifndef __DISPLAY12864_H
+#define __DISPLAY12864_H
+
+typedef struct typFNT_GB16
+{
+    unsigned char index[2];
+    unsigned char Msk[32];
+};
 
 /***************************16*16的点阵字体取模方式：共阴——列行式——逆向输出*********/
 

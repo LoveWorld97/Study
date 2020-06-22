@@ -1,5 +1,4 @@
 #include "oled.h"
-#include "ascii.h"
 #include "main.h"
 void WriteCmd(unsigned char I2C_Command) //写命令
 {
