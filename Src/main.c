@@ -21,6 +21,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "i2c.h"
+#include "rtc.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -32,7 +34,17 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+/*printf()函数重写*/
+int fputc(int ch, FILE *f)
+{
+    uint8_t temp[1] = {ch};
+    HAL_UART_Transmit(&huart1, temp, 1, 2);
+    return ch;
+}
+/*获取日期结构体*/
+RTC_DateTypeDef getdate;
+/*获取时间结构体*/
+RTC_TimeTypeDef gettime;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -106,8 +118,7 @@ int main(void)
             0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x0F, 0x0F, 0x0F, 0x0F, 0x0F, 0x0F, 0x0F, 0x07, 0x0F, 0x1F,
             0x0F, 0x0F, 0x0F, 0x0F, 0x0F, 0x07, 0x07, 0x07, 0x03, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
             0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x60, 0xF0, 0xF8, 0xFE, 0xFB, 0xFF, 0xFF, 0xFF, 0xFF
-        };
+            0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x60, 0xF0, 0xF8, 0xFE, 0xFB, 0xFF, 0xFF, 0xFF, 0xFF};
     /* USER CODE END 1 */
 
     /* MCU Configuration--------------------------------------------------------*/
@@ -129,6 +140,8 @@ int main(void)
     /* Initialize all configured peripherals */
     MX_GPIO_Init();
     MX_I2C1_Init();
+    MX_RTC_Init();
+    MX_USART1_UART_Init();
     /* USER CODE BEGIN 2 */
     OLED_Init();
     OLED_CLS();
@@ -139,15 +152,22 @@ int main(void)
     while (1)
     {
         /* USER CODE END WHILE */
-        show_string_atype(0, 0, "0123456789", 10);
-        show_string_atype(2, 0, "abcdefghijkl", 12);
-        show_chs_string(4, 0, "加油！");
-        HAL_Delay(2000);
-        OLED_CLS();
-        OLED_DrawBMP(25, 0, 95, 7, BMP1);
-        HAL_Delay(2000);
-        OLED_CLS();
+
         /* USER CODE BEGIN 3 */
+        //必须HAL_RTC_GetTime在前HAL_RTC_GetDate在后,否则获取时间不及时
+        /*display time format:hh/mm/ss*/
+        printf("%02d/%02d/%02d\r\n", gettime.Hours, gettime.Minutes, gettime.Seconds);
+        /*display date format:yy/mm/dd*/
+        printf("%02d/%02d/%02d\r\n", getdate.Year, getdate.Month, getdate.Date);
+
+        show_chs_string(2, 0, "加油！");
+        show_string_atype(4, 0, "1234567890", 10);
+        show_string_atype(6, 0, "asdfghjkl", 9);
+        HAL_Delay(3000);
+        OLED_CLS();
+        show_drawBMP(25, 0, 95, 7, BMP1);
+        HAL_Delay(3000);
+        OLED_CLS();
     }
     /* USER CODE END 3 */
 }
@@ -160,12 +180,14 @@ void SystemClock_Config(void)
 {
     RCC_OscInitTypeDef RCC_OscInitStruct = {0};
     RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+    RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
     /** Initializes the CPU, AHB and APB busses clocks 
   */
-    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE | RCC_OSCILLATORTYPE_LSE;
     RCC_OscInitStruct.HSEState = RCC_HSE_ON;
     RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
+    RCC_OscInitStruct.LSEState = RCC_LSE_ON;
     RCC_OscInitStruct.HSIState = RCC_HSI_ON;
     RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
     RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
@@ -183,6 +205,12 @@ void SystemClock_Config(void)
     RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
     if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+    {
+        Error_Handler();
+    }
+    PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RTC;
+    PeriphClkInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
+    if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
     {
         Error_Handler();
     }

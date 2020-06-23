@@ -296,7 +296,7 @@ void show_chs_string(uint8_t line, uint8_t column, char *data)
 /* Parameters     : x0,y0 -- 起始点坐标(x0:0~127, y0:0~7); x1,y1 -- 起点对角线(结束点)的坐标(x1:1~128,y1:1~8)
 Description    : 显示BMP位图
 */
-void OLED_DrawBMP(unsigned char x0, unsigned char y0, unsigned char x1, unsigned char y1, unsigned char BMP[])
+void show_drawBMP(unsigned char x0, unsigned char y0, unsigned char x1, unsigned char y1, unsigned char BMP[])
 {
     unsigned int j = 0;
     unsigned char x, y;

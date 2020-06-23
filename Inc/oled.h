@@ -41,7 +41,7 @@ extern void OLED_CLS(void);
 extern void OLED_ON(void);
 extern void OLED_OFF(void);
 
-extern void OLED_DrawBMP(unsigned char x0, unsigned char y0, unsigned char x1, unsigned char y1, unsigned char BMP[]); //显示图片（取模：阴，列行，逆，输出索引，精简）
+extern void show_drawBMP(unsigned char x0, unsigned char y0, unsigned char x1, unsigned char y1, unsigned char BMP[]); //显示图片（取模：阴，列行，逆，输出索引，精简）
 extern void show_char_a1type(uint8_t line, uint8_t column, char character);/*显示一个字符*/
 extern void show_string_atype(uint8_t line, uint8_t column, char *data, uint8_t len);/*显示字符串*/
 extern void show_hanzi(uint8_t line, uint8_t column, char *data);/*显示一个汉字*/
