@@ -18,11 +18,18 @@
 #define COM 0x00          // OLED 指令（禁止修改）
 #define DAT 0x40          // OLED 数据（禁止修改）
 
+#define GB_16_num sizeof(GB_16) / sizeof(GB_16[0])
+#define ASC_16_num sizeof(ASC_16) / sizeof(ASC_16[0])
 
 typedef struct typFNT_GB16
 {
-    unsigned char index[2];
+    char Index[4];
     unsigned char Msk[32];
+};
+typedef struct typFNT_ASC16
+{
+    char Index[1];
+    unsigned char Msk[16];
 };
 
 extern void WriteCmd(unsigned char I2C_Command); //写命令
@@ -33,13 +40,12 @@ extern void OLED_Fill(unsigned char fill_Data); //全屏填充
 extern void OLED_CLS(void);
 extern void OLED_ON(void);
 extern void OLED_OFF(void);
-extern void OLED_ShowStr(unsigned char x, unsigned char y, char ch[], unsigned char TextSize);                //显示字符串
-extern void OLED_ShowCN(unsigned char x, unsigned char y, unsigned char N);                                            //显示汉字
+
 extern void OLED_DrawBMP(unsigned char x0, unsigned char y0, unsigned char x1, unsigned char y1, unsigned char BMP[]); //显示图片（取模：阴，列行，逆，输出索引，精简）
-
-extern void OLED_ShowCN_STR(u8 x, u8 y, u8 begin, u8 num); //自己写的输出中文字符串
-
-extern void OLED_ShowChar(u8 x, u8 y, u8 chr, u8 Char_Size);
+extern void show_char_a1type(uint8_t line, uint8_t column, char character);/*显示一个字符*/
+extern void show_string_atype(uint8_t line, uint8_t column, char *data, uint8_t len);/*显示字符串*/
+extern void show_hanzi(uint8_t line, uint8_t column, char *data);/*显示一个汉字*/
+extern void show_chs_string(uint8_t line, uint8_t column, char *data);/*显示一个中文字符串*/
 extern u32 oled_pow(u8 m, u8 n);
-extern void OLED_ShowNum(u8 x, u8 y, u32 num, u8 len, u8 size2); //size2(16|12)
+
 #endif
