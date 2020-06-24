@@ -22,6 +22,7 @@
 #include "main.h"
 #include "i2c.h"
 #include "rtc.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -30,6 +31,7 @@
 #include "oled.h"
 #include "stdio.h"
 #include "stdlib.h"
+#include "display.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -41,10 +43,7 @@ int fputc(int ch, FILE *f)
     HAL_UART_Transmit(&huart1, temp, 1, 2);
     return ch;
 }
-/*获取日期结构体*/
-RTC_DateTypeDef getdate;
-/*获取时间结构体*/
-RTC_TimeTypeDef gettime;
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -81,7 +80,6 @@ int main(void)
 {
     /* USER CODE BEGIN 1 */
     char num_temp_buffer[16] = {0};
-
     unsigned char BMP1[] =
         {
             0x00, 0x80, 0x80, 0x80, 0x80, 0xC0, 0x80, 0x80, 0x80, 0xC0, 0xC0, 0xC0, 0xC0, 0xE0, 0xE0, 0xE0,
@@ -142,9 +140,12 @@ int main(void)
     MX_I2C1_Init();
     MX_RTC_Init();
     MX_USART1_UART_Init();
+    MX_TIM6_Init();
     /* USER CODE BEGIN 2 */
     OLED_Init();
     OLED_CLS();
+
+    g_1s_flag = 1;
     /* USER CODE END 2 */
 
     /* Infinite loop */
@@ -154,11 +155,16 @@ int main(void)
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-        //必须HAL_RTC_GetTime在前HAL_RTC_GetDate在后,否则获取时间不及时
-        /*display time format:hh/mm/ss*/
-        printf("%02d/%02d/%02d\r\n", gettime.Hours, gettime.Minutes, gettime.Seconds);
-        /*display date format:yy/mm/dd*/
-        printf("%02d/%02d/%02d\r\n", getdate.Year, getdate.Month, getdate.Date);
+        if (g_1s_flag)
+        {
+            g_1s_flag = 0;
+            get_time(&gettime, &getdate);
+            //必须HAL_RTC_GetTime在前HAL_RTC_GetDate在后,否则获取时间不及时
+            /*display time format:hh/mm/ss*/
+            printf("%02d/%02d/%02d\r\n", gettime.Hours, gettime.Minutes, gettime.Seconds);
+            /*display date format:yy/mm/dd*/
+            printf("%02d/%02d/%02d\r\n", getdate.Year, getdate.Month, getdate.Date);
+        }
 
         show_chs_string(2, 0, "加油！");
         show_string_atype(4, 0, "1234567890", 10);

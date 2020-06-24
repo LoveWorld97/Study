@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * File Name          : RTC.h
+  * File Name          : TIM.h
   * Description        : This file provides code for the configuration
-  *                      of the RTC instances.
+  *                      of the TIM instances.
   ******************************************************************************
   * @attention
   *
@@ -17,43 +17,35 @@
   ******************************************************************************
   */
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __rtc_H
-#define __rtc_H
+#ifndef __tim_H
+#define __tim_H
 #ifdef __cplusplus
-extern "C"
-{
+ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
-    /* USER CODE BEGIN Includes */
+/* USER CODE BEGIN Includes */
 
-    /* USER CODE END Includes */
+/* USER CODE END Includes */
 
-    extern RTC_HandleTypeDef hrtc;
+extern TIM_HandleTypeDef htim6;
 
-    /* USER CODE BEGIN Private defines */
+/* USER CODE BEGIN Private defines */
+extern uint8_t g_1s_flag = 0;
+/* USER CODE END Private defines */
 
-    /* USER CODE END Private defines */
+void MX_TIM6_Init(void);
 
-    void MX_RTC_Init(void);
+/* USER CODE BEGIN Prototypes */
 
-    /* USER CODE BEGIN Prototypes */
-    /*获取日期结构体*/
-    RTC_DateTypeDef getdate;
-    /*获取时间结构体*/
-    RTC_TimeTypeDef gettime;
-    
-    extern void get_time(RTC_DateTypeDef *RTC_Time, RTC_TimeTypeDef *RTC_Date);
-    extern void set_time(uint8_t hours, uint8_t minutes, uint8_t seconds);
-    extern void set_date(uint8_t year, uint8_t month, uint8_t date);
-    /* USER CODE END Prototypes */
+/* USER CODE END Prototypes */
 
 #ifdef __cplusplus
 }
 #endif
-#endif /*__ rtc_H */
+#endif /*__ tim_H */
 
 /**
   * @}

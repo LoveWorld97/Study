@@ -29,85 +29,86 @@ RTC_HandleTypeDef hrtc;
 /* RTC init function */
 void MX_RTC_Init(void)
 {
-    RTC_TimeTypeDef sTime = {0};
-    RTC_DateTypeDef DateToUpdate = {0};
+  RTC_TimeTypeDef sTime = {0};
+  RTC_DateTypeDef DateToUpdate = {0};
 
-    /** Initialize RTC Only 
+  /** Initialize RTC Only 
   */
-    hrtc.Instance = RTC;
-    hrtc.Init.AsynchPrediv = RTC_AUTO_1_SECOND;
-    hrtc.Init.OutPut = RTC_OUTPUTSOURCE_NONE;
-    if (HAL_RTC_Init(&hrtc) != HAL_OK)
-    {
-        Error_Handler();
-    }
+  hrtc.Instance = RTC;
+  hrtc.Init.AsynchPrediv = RTC_AUTO_1_SECOND;
+  hrtc.Init.OutPut = RTC_OUTPUTSOURCE_NONE;
+  if (HAL_RTC_Init(&hrtc) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
-    /* USER CODE BEGIN Check_RTC_BKUP */
+  /* USER CODE BEGIN Check_RTC_BKUP */
 
-    /* USER CODE END Check_RTC_BKUP */
+  /* USER CODE END Check_RTC_BKUP */
 
-    /** Initialize RTC and set the Time and Date 
+  /** Initialize RTC and set the Time and Date 
   */
-    sTime.Hours = 0x14;
-    sTime.Minutes = 0x30;
-    sTime.Seconds = 0x0;
+  sTime.Hours = 0x14;
+  sTime.Minutes = 0x30;
+  sTime.Seconds = 0x0;
 
-    if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK)
-    {
-        Error_Handler();
-    }
-    DateToUpdate.WeekDay = RTC_WEEKDAY_TUESDAY;
-    DateToUpdate.Month = RTC_MONTH_JUNE;
-    DateToUpdate.Date = 0x23;
-    DateToUpdate.Year = 0x0;
+  if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  DateToUpdate.WeekDay = RTC_WEEKDAY_TUESDAY;
+  DateToUpdate.Month = RTC_MONTH_JUNE;
+  DateToUpdate.Date = 0x23;
+  DateToUpdate.Year = 0x0;
 
-    if (HAL_RTC_SetDate(&hrtc, &DateToUpdate, RTC_FORMAT_BCD) != HAL_OK)
-    {
-        Error_Handler();
-    }
+  if (HAL_RTC_SetDate(&hrtc, &DateToUpdate, RTC_FORMAT_BCD) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
 }
 
-void HAL_RTC_MspInit(RTC_HandleTypeDef *rtcHandle)
+void HAL_RTC_MspInit(RTC_HandleTypeDef* rtcHandle)
 {
 
-    if (rtcHandle->Instance == RTC)
-    {
-        /* USER CODE BEGIN RTC_MspInit 0 */
+  if(rtcHandle->Instance==RTC)
+  {
+  /* USER CODE BEGIN RTC_MspInit 0 */
 
-        /* USER CODE END RTC_MspInit 0 */
-        HAL_PWR_EnableBkUpAccess();
-        /* Enable BKP CLK enable for backup registers */
-        __HAL_RCC_BKP_CLK_ENABLE();
-        /* RTC clock enable */
-        __HAL_RCC_RTC_ENABLE();
+  /* USER CODE END RTC_MspInit 0 */
+    HAL_PWR_EnableBkUpAccess();
+    /* Enable BKP CLK enable for backup registers */
+    __HAL_RCC_BKP_CLK_ENABLE();
+    /* RTC clock enable */
+    __HAL_RCC_RTC_ENABLE();
 
-        /* RTC interrupt Init */
-        HAL_NVIC_SetPriority(RTC_IRQn, 0, 0);
-        HAL_NVIC_EnableIRQ(RTC_IRQn);
-        /* USER CODE BEGIN RTC_MspInit 1 */
+    /* RTC interrupt Init */
+    HAL_NVIC_SetPriority(RTC_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(RTC_IRQn);
+  /* USER CODE BEGIN RTC_MspInit 1 */
 
-        /* USER CODE END RTC_MspInit 1 */
-    }
+  /* USER CODE END RTC_MspInit 1 */
+  }
 }
 
-void HAL_RTC_MspDeInit(RTC_HandleTypeDef *rtcHandle)
+void HAL_RTC_MspDeInit(RTC_HandleTypeDef* rtcHandle)
 {
 
-    if (rtcHandle->Instance == RTC)
-    {
-        /* USER CODE BEGIN RTC_MspDeInit 0 */
+  if(rtcHandle->Instance==RTC)
+  {
+  /* USER CODE BEGIN RTC_MspDeInit 0 */
 
-        /* USER CODE END RTC_MspDeInit 0 */
-        /* Peripheral clock disable */
-        __HAL_RCC_RTC_DISABLE();
+  /* USER CODE END RTC_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_RTC_DISABLE();
 
-        /* RTC interrupt Deinit */
-        HAL_NVIC_DisableIRQ(RTC_IRQn);
-        /* USER CODE BEGIN RTC_MspDeInit 1 */
+    /* RTC interrupt Deinit */
+    HAL_NVIC_DisableIRQ(RTC_IRQn);
+  /* USER CODE BEGIN RTC_MspDeInit 1 */
 
-        /* USER CODE END RTC_MspDeInit 1 */
-    }
-}
+  /* USER CODE END RTC_MspDeInit 1 */
+  }
+} 
 
 /* USER CODE BEGIN 1 */
 /*设置日期*/
@@ -133,13 +134,13 @@ void set_time(uint8_t hours,uint8_t minutes,uint8_t seconds)
 }
 
 /*获取时间日期*/
-void get_time(RTC_DateTypeDef RTC_Date, RTC_TimeTypeDef RTC_Time)
+void get_time(RTC_DateTypeDef *RTC_Time, RTC_TimeTypeDef *RTC_Date)
 {
     //注意必须GetTime在前GetDate在后
-    /*get rtc current date*/
-    HAL_RTC_GetDate(&hrtc, &RTC_Date, RTC_FORMAT_BIN);
     /*get rtc current time*/
-    HAL_RTC_GetTime(&hrtc, &RTC_Time, RTC_FORMAT_BIN);
+    HAL_RTC_GetTime(&hrtc, RTC_Time, RTC_FORMAT_BIN);
+    /*get rtc current date*/
+    HAL_RTC_GetDate(&hrtc, RTC_Date, RTC_FORMAT_BIN);
 }
 
 /* USER CODE END 1 */
