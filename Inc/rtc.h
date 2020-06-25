@@ -20,35 +20,34 @@
 #ifndef __rtc_H
 #define __rtc_H
 #ifdef __cplusplus
-extern "C"
-{
+ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
-    /* USER CODE BEGIN Includes */
+/* USER CODE BEGIN Includes */
 
-    /* USER CODE END Includes */
+/* USER CODE END Includes */
 
-    extern RTC_HandleTypeDef hrtc;
+extern RTC_HandleTypeDef hrtc;
 
-    /* USER CODE BEGIN Private defines */
+/* USER CODE BEGIN Private defines */
 
-    /* USER CODE END Private defines */
+/* USER CODE END Private defines */
 
-    void MX_RTC_Init(void);
+void MX_RTC_Init(void);
 
-    /* USER CODE BEGIN Prototypes */
-    /*获取日期结构体*/
+/* USER CODE BEGIN Prototypes */
+    /*获取日期结构�?*/
     RTC_DateTypeDef getdate;
-    /*获取时间结构体*/
+    /*获取时间结构�?*/
     RTC_TimeTypeDef gettime;
     
     extern void get_time(RTC_DateTypeDef *RTC_Time, RTC_TimeTypeDef *RTC_Date);
     extern void set_time(uint8_t hours, uint8_t minutes, uint8_t seconds);
     extern void set_date(uint8_t year, uint8_t month, uint8_t date);
-    /* USER CODE END Prototypes */
+/* USER CODE END Prototypes */
 
 #ifdef __cplusplus
 }
