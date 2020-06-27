@@ -183,16 +183,16 @@ int main(void)
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-        // if (g_1s_flag)
-        // {
-        //     g_1s_flag = 0;
-        //     get_time(&gettime, &getdate);
-        //     //蹇呴』HAL_RTC_GetTime鍦ㄥ墠HAL_RTC_GetDate鍦ㄥ悗,鍚﹀垯鑾峰彇鏃堕棿涓嶅強鏃?
-        //     /*display time format:hh/mm/ss*/
-        //     printf("%02d/%02d/%02d\r\n", gettime.Hours, gettime.Minutes, gettime.Seconds);
-        //     /*display date format:yy/mm/dd*/
-        //     printf("%02d/%02d/%02d\r\n", getdate.Year, getdate.Month, getdate.Date);
-        // }
+        if (g_1s_flag)
+        {
+            g_1s_flag = 0;
+            get_time(&gettime, &getdate);
+            //蹇呴』HAL_RTC_GetTime鍦ㄥ墠HAL_RTC_GetDate鍦ㄥ悗,鍚﹀垯鑾峰彇鏃堕棿涓嶅強鏃?
+            /*display time format:hh/mm/ss*/
+            printf("%02d/%02d/%02d\r\n", gettime.Hours, gettime.Minutes, gettime.Seconds);
+            /*display date format:yy/mm/dd*/
+            printf("%02d/%02d/%02d\r\n", getdate.Year, getdate.Month, getdate.Date);
+        }
         show_chs_string(0, 0, "苏培佩我爱你！");
         show_chs_string(2, 0, "高凯琦加油！");
         show_string_atype(4, 0, "1234567890", 10);
@@ -200,6 +200,9 @@ int main(void)
         HAL_Delay(3000);
         OLED_CLS();
         show_drawBMP(0, 0, 7, 127, BMP1);
+        HAL_Delay(3000);
+        OLED_CLS();
+        display_time();
         HAL_Delay(3000);
         OLED_CLS();
     }

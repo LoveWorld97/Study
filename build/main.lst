@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 1
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 1
   29:Src/main.c    **** /* Private includes ----------------------------------------------------------*/
   30:Src/main.c    **** /* USER CODE BEGIN Includes */
   31:Src/main.c    **** #include "oled.h"
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 2
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 2
 
 
   32:Src/main.c    **** #include "stdio.h"
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 1
   68              	.L3:
   69 001c 00000000 		.word	huart1
   70              		.cfi_endproc
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 3
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 3
 
 
   71              	.LFE68:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 1
   90:Src/main.c    ****             0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0
   91:Src/main.c    ****             0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0
   92:Src/main.c    ****             0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 4
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 4
 
 
   93:Src/main.c    ****             0x00, 0x00, 0x00, 0x00, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x00, 0x0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 1
  147:Src/main.c    ****             0x0F, 0x0F, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0
  148:Src/main.c    ****     /* USER CODE END 1 */
  149:Src/main.c    **** 
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 5
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 5
 
 
  150:Src/main.c    ****     /* MCU Configuration--------------------------------------------------------*/
@@ -277,16 +277,16 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 1
  183:Src/main.c    ****         /* USER CODE END WHILE */
  184:Src/main.c    **** 
  185:Src/main.c    ****         /* USER CODE BEGIN 3 */
- 186:Src/main.c    ****         // if (g_1s_flag)
- 187:Src/main.c    ****         // {
- 188:Src/main.c    ****         //     g_1s_flag = 0;
- 189:Src/main.c    ****         //     get_time(&gettime, &getdate);
- 190:Src/main.c    ****         //     //蹇呴』HAL_RTC_GetTime鍦ㄥ墠HAL_RTC_GetDate鍦ㄥ悗,鍚﹀垯鑾峰彇鏃堕
- 191:Src/main.c    ****         //     /*display time format:hh/mm/ss*/
- 192:Src/main.c    ****         //     printf("%02d/%02d/%02d\r\n", gettime.Hours, gettime.Minutes, gettime.Seconds);
- 193:Src/main.c    ****         //     /*display date format:yy/mm/dd*/
- 194:Src/main.c    ****         //     printf("%02d/%02d/%02d\r\n", getdate.Year, getdate.Month, getdate.Date);
- 195:Src/main.c    ****         // }
+ 186:Src/main.c    ****         if (g_1s_flag)
+ 187:Src/main.c    ****         {
+ 188:Src/main.c    ****             g_1s_flag = 0;
+ 189:Src/main.c    ****             get_time(&gettime, &getdate);
+ 190:Src/main.c    ****             //蹇呴』HAL_RTC_GetTime鍦ㄥ墠HAL_RTC_GetDate鍦ㄥ悗,鍚﹀垯鑾峰彇鏃堕棿
+ 191:Src/main.c    ****             /*display time format:hh/mm/ss*/
+ 192:Src/main.c    ****             printf("%02d/%02d/%02d\r\n", gettime.Hours, gettime.Minutes, gettime.Seconds);
+ 193:Src/main.c    ****             /*display date format:yy/mm/dd*/
+ 194:Src/main.c    ****             printf("%02d/%02d/%02d\r\n", getdate.Year, getdate.Month, getdate.Date);
+ 195:Src/main.c    ****         }
  196:Src/main.c    ****         show_chs_string(0, 0, "苏培佩我爱你！");
  197:Src/main.c    ****         show_chs_string(2, 0, "高凯琦加油！");
  198:Src/main.c    ****         show_string_atype(4, 0, "1234567890", 10);
@@ -296,20 +296,23 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 1
  202:Src/main.c    ****         show_drawBMP(0, 0, 7, 127, BMP1);
  203:Src/main.c    ****         HAL_Delay(3000);
  204:Src/main.c    ****         OLED_CLS();
- 205:Src/main.c    ****     }
- 206:Src/main.c    ****     /* USER CODE END 3 */
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 6
+ 205:Src/main.c    ****         display_time();
+ 206:Src/main.c    ****         HAL_Delay(3000);
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 6
 
 
- 207:Src/main.c    **** }
- 208:Src/main.c    **** 
- 209:Src/main.c    **** /**
- 210:Src/main.c    ****   * @brief System Clock Configuration
- 211:Src/main.c    ****   * @retval None
- 212:Src/main.c    ****   */
- 213:Src/main.c    **** void SystemClock_Config(void)
- 214:Src/main.c    **** {
-  83              		.loc 1 214 1 is_stmt 1 view -0
+ 207:Src/main.c    ****         OLED_CLS();
+ 208:Src/main.c    ****     }
+ 209:Src/main.c    ****     /* USER CODE END 3 */
+ 210:Src/main.c    **** }
+ 211:Src/main.c    **** 
+ 212:Src/main.c    **** /**
+ 213:Src/main.c    ****   * @brief System Clock Configuration
+ 214:Src/main.c    ****   * @retval None
+ 215:Src/main.c    ****   */
+ 216:Src/main.c    **** void SystemClock_Config(void)
+ 217:Src/main.c    **** {
+  83              		.loc 1 217 1 is_stmt 1 view -0
   84              		.cfi_startproc
   85              		@ args = 0, pretend = 0, frame = 88
   86              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -323,139 +326,139 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 1
   94 0002 96B0     		sub	sp, sp, #88
   95              	.LCFI4:
   96              		.cfi_def_cfa_offset 104
- 215:Src/main.c    ****     RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-  97              		.loc 1 215 5 view .LVU11
-  98              		.loc 1 215 24 is_stmt 0 view .LVU12
+ 218:Src/main.c    ****     RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  97              		.loc 1 218 5 view .LVU11
+  98              		.loc 1 218 24 is_stmt 0 view .LVU12
   99 0004 0024     		movs	r4, #0
  100 0006 1194     		str	r4, [sp, #68]
  101 0008 1294     		str	r4, [sp, #72]
- 216:Src/main.c    ****     RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
- 102              		.loc 1 216 5 is_stmt 1 view .LVU13
- 103              		.loc 1 216 24 is_stmt 0 view .LVU14
+ 219:Src/main.c    ****     RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 102              		.loc 1 219 5 is_stmt 1 view .LVU13
+ 103              		.loc 1 219 24 is_stmt 0 view .LVU14
  104 000a 0794     		str	r4, [sp, #28]
  105 000c 0894     		str	r4, [sp, #32]
  106 000e 0994     		str	r4, [sp, #36]
  107 0010 0A94     		str	r4, [sp, #40]
  108 0012 0B94     		str	r4, [sp, #44]
- 217:Src/main.c    ****     RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
- 109              		.loc 1 217 5 is_stmt 1 view .LVU15
- 110              		.loc 1 217 30 is_stmt 0 view .LVU16
+ 220:Src/main.c    ****     RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
+ 109              		.loc 1 220 5 is_stmt 1 view .LVU15
+ 110              		.loc 1 220 30 is_stmt 0 view .LVU16
  111 0014 0194     		str	r4, [sp, #4]
  112 0016 0294     		str	r4, [sp, #8]
  113 0018 0394     		str	r4, [sp, #12]
  114 001a 0494     		str	r4, [sp, #16]
  115 001c 0594     		str	r4, [sp, #20]
  116 001e 0694     		str	r4, [sp, #24]
- 218:Src/main.c    **** 
- 219:Src/main.c    ****     /** Initializes the CPU, AHB and APB busses clocks 
- 220:Src/main.c    ****   */
- 221:Src/main.c    ****     RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE | RCC_OSCILLATORTYPE_LSE;
- 117              		.loc 1 221 5 is_stmt 1 view .LVU17
- 118              		.loc 1 221 38 is_stmt 0 view .LVU18
+ 221:Src/main.c    **** 
+ 222:Src/main.c    ****     /** Initializes the CPU, AHB and APB busses clocks 
+ 223:Src/main.c    ****   */
+ 224:Src/main.c    ****     RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE | RCC_OSCILLATORTYPE_LSE;
+ 117              		.loc 1 224 5 is_stmt 1 view .LVU17
+ 118              		.loc 1 224 38 is_stmt 0 view .LVU18
  119 0020 0523     		movs	r3, #5
  120 0022 0C93     		str	r3, [sp, #48]
- 222:Src/main.c    ****     RCC_OscInitStruct.HSEState = RCC_HSE_ON;
- 121              		.loc 1 222 5 is_stmt 1 view .LVU19
- 122              		.loc 1 222 32 is_stmt 0 view .LVU20
+ 225:Src/main.c    ****     RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 7
+
+
+ 121              		.loc 1 225 5 is_stmt 1 view .LVU19
+ 122              		.loc 1 225 32 is_stmt 0 view .LVU20
  123 0024 4FF48033 		mov	r3, #65536
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 7
-
-
  124 0028 0D93     		str	r3, [sp, #52]
- 223:Src/main.c    ****     RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
- 125              		.loc 1 223 5 is_stmt 1 view .LVU21
- 126              		.loc 1 223 38 is_stmt 0 view .LVU22
+ 226:Src/main.c    ****     RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
+ 125              		.loc 1 226 5 is_stmt 1 view .LVU21
+ 126              		.loc 1 226 38 is_stmt 0 view .LVU22
  127 002a 0E94     		str	r4, [sp, #56]
- 224:Src/main.c    ****     RCC_OscInitStruct.LSEState = RCC_LSE_ON;
- 128              		.loc 1 224 5 is_stmt 1 view .LVU23
- 129              		.loc 1 224 32 is_stmt 0 view .LVU24
+ 227:Src/main.c    ****     RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+ 128              		.loc 1 227 5 is_stmt 1 view .LVU23
+ 129              		.loc 1 227 32 is_stmt 0 view .LVU24
  130 002c 0125     		movs	r5, #1
  131 002e 0F95     		str	r5, [sp, #60]
- 225:Src/main.c    ****     RCC_OscInitStruct.HSIState = RCC_HSI_ON;
- 132              		.loc 1 225 5 is_stmt 1 view .LVU25
- 133              		.loc 1 225 32 is_stmt 0 view .LVU26
+ 228:Src/main.c    ****     RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 132              		.loc 1 228 5 is_stmt 1 view .LVU25
+ 133              		.loc 1 228 32 is_stmt 0 view .LVU26
  134 0030 1095     		str	r5, [sp, #64]
- 226:Src/main.c    ****     RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
- 135              		.loc 1 226 5 is_stmt 1 view .LVU27
- 136              		.loc 1 226 36 is_stmt 0 view .LVU28
+ 229:Src/main.c    ****     RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 135              		.loc 1 229 5 is_stmt 1 view .LVU27
+ 136              		.loc 1 229 36 is_stmt 0 view .LVU28
  137 0032 0226     		movs	r6, #2
  138 0034 1396     		str	r6, [sp, #76]
- 227:Src/main.c    ****     RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
- 139              		.loc 1 227 5 is_stmt 1 view .LVU29
- 140              		.loc 1 227 37 is_stmt 0 view .LVU30
+ 230:Src/main.c    ****     RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+ 139              		.loc 1 230 5 is_stmt 1 view .LVU29
+ 140              		.loc 1 230 37 is_stmt 0 view .LVU30
  141 0036 1493     		str	r3, [sp, #80]
- 228:Src/main.c    ****     RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
- 142              		.loc 1 228 5 is_stmt 1 view .LVU31
- 143              		.loc 1 228 34 is_stmt 0 view .LVU32
+ 231:Src/main.c    ****     RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
+ 142              		.loc 1 231 5 is_stmt 1 view .LVU31
+ 143              		.loc 1 231 34 is_stmt 0 view .LVU32
  144 0038 4FF4E013 		mov	r3, #1835008
  145 003c 1593     		str	r3, [sp, #84]
- 229:Src/main.c    ****     if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 146              		.loc 1 229 5 is_stmt 1 view .LVU33
- 147              		.loc 1 229 9 is_stmt 0 view .LVU34
+ 232:Src/main.c    ****     if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 146              		.loc 1 232 5 is_stmt 1 view .LVU33
+ 147              		.loc 1 232 9 is_stmt 0 view .LVU34
  148 003e 0CA8     		add	r0, sp, #48
  149 0040 FFF7FEFF 		bl	HAL_RCC_OscConfig
  150              	.LVL5:
- 230:Src/main.c    ****     {
- 231:Src/main.c    ****         Error_Handler();
- 232:Src/main.c    ****     }
- 233:Src/main.c    ****     /** Initializes the CPU, AHB and APB busses clocks 
- 234:Src/main.c    ****   */
- 235:Src/main.c    ****     RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 |
- 151              		.loc 1 235 5 is_stmt 1 view .LVU35
- 152              		.loc 1 235 33 is_stmt 0 view .LVU36
+ 233:Src/main.c    ****     {
+ 234:Src/main.c    ****         Error_Handler();
+ 235:Src/main.c    ****     }
+ 236:Src/main.c    ****     /** Initializes the CPU, AHB and APB busses clocks 
+ 237:Src/main.c    ****   */
+ 238:Src/main.c    ****     RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 |
+ 151              		.loc 1 238 5 is_stmt 1 view .LVU35
+ 152              		.loc 1 238 33 is_stmt 0 view .LVU36
  153 0044 0F23     		movs	r3, #15
  154 0046 0793     		str	r3, [sp, #28]
- 236:Src/main.c    ****     RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
- 155              		.loc 1 236 5 is_stmt 1 view .LVU37
- 156              		.loc 1 236 36 is_stmt 0 view .LVU38
+ 239:Src/main.c    ****     RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+ 155              		.loc 1 239 5 is_stmt 1 view .LVU37
+ 156              		.loc 1 239 36 is_stmt 0 view .LVU38
  157 0048 0896     		str	r6, [sp, #32]
- 237:Src/main.c    ****     RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 158              		.loc 1 237 5 is_stmt 1 view .LVU39
- 159              		.loc 1 237 37 is_stmt 0 view .LVU40
+ 240:Src/main.c    ****     RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 158              		.loc 1 240 5 is_stmt 1 view .LVU39
+ 159              		.loc 1 240 37 is_stmt 0 view .LVU40
  160 004a 0994     		str	r4, [sp, #36]
- 238:Src/main.c    ****     RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
- 161              		.loc 1 238 5 is_stmt 1 view .LVU41
- 162              		.loc 1 238 38 is_stmt 0 view .LVU42
+ 241:Src/main.c    ****     RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+ 161              		.loc 1 241 5 is_stmt 1 view .LVU41
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 8
+
+
+ 162              		.loc 1 241 38 is_stmt 0 view .LVU42
  163 004c 4FF48063 		mov	r3, #1024
  164 0050 0A93     		str	r3, [sp, #40]
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 8
-
-
- 239:Src/main.c    ****     RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
- 165              		.loc 1 239 5 is_stmt 1 view .LVU43
- 166              		.loc 1 239 38 is_stmt 0 view .LVU44
+ 242:Src/main.c    ****     RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 165              		.loc 1 242 5 is_stmt 1 view .LVU43
+ 166              		.loc 1 242 38 is_stmt 0 view .LVU44
  167 0052 0B94     		str	r4, [sp, #44]
- 240:Src/main.c    **** 
- 241:Src/main.c    ****     if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
- 168              		.loc 1 241 5 is_stmt 1 view .LVU45
- 169              		.loc 1 241 9 is_stmt 0 view .LVU46
+ 243:Src/main.c    **** 
+ 244:Src/main.c    ****     if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+ 168              		.loc 1 244 5 is_stmt 1 view .LVU45
+ 169              		.loc 1 244 9 is_stmt 0 view .LVU46
  170 0054 3146     		mov	r1, r6
  171 0056 07A8     		add	r0, sp, #28
  172 0058 FFF7FEFF 		bl	HAL_RCC_ClockConfig
  173              	.LVL6:
- 242:Src/main.c    ****     {
- 243:Src/main.c    ****         Error_Handler();
- 244:Src/main.c    ****     }
- 245:Src/main.c    ****     PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RTC;
- 174              		.loc 1 245 5 is_stmt 1 view .LVU47
- 175              		.loc 1 245 40 is_stmt 0 view .LVU48
+ 245:Src/main.c    ****     {
+ 246:Src/main.c    ****         Error_Handler();
+ 247:Src/main.c    ****     }
+ 248:Src/main.c    ****     PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RTC;
+ 174              		.loc 1 248 5 is_stmt 1 view .LVU47
+ 175              		.loc 1 248 40 is_stmt 0 view .LVU48
  176 005c 0195     		str	r5, [sp, #4]
- 246:Src/main.c    ****     PeriphClkInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
- 177              		.loc 1 246 5 is_stmt 1 view .LVU49
- 178              		.loc 1 246 37 is_stmt 0 view .LVU50
+ 249:Src/main.c    ****     PeriphClkInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
+ 177              		.loc 1 249 5 is_stmt 1 view .LVU49
+ 178              		.loc 1 249 37 is_stmt 0 view .LVU50
  179 005e 4FF48073 		mov	r3, #256
  180 0062 0293     		str	r3, [sp, #8]
- 247:Src/main.c    ****     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
- 181              		.loc 1 247 5 is_stmt 1 view .LVU51
- 182              		.loc 1 247 9 is_stmt 0 view .LVU52
+ 250:Src/main.c    ****     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+ 181              		.loc 1 250 5 is_stmt 1 view .LVU51
+ 182              		.loc 1 250 9 is_stmt 0 view .LVU52
  183 0064 01A8     		add	r0, sp, #4
  184 0066 FFF7FEFF 		bl	HAL_RCCEx_PeriphCLKConfig
  185              	.LVL7:
- 248:Src/main.c    ****     {
- 249:Src/main.c    ****         Error_Handler();
- 250:Src/main.c    ****     }
- 251:Src/main.c    **** }
- 186              		.loc 1 251 1 view .LVU53
+ 251:Src/main.c    ****     {
+ 252:Src/main.c    ****         Error_Handler();
+ 253:Src/main.c    ****     }
+ 254:Src/main.c    **** }
+ 186              		.loc 1 254 1 view .LVU53
  187 006a 16B0     		add	sp, sp, #88
  188              	.LCFI5:
  189              		.cfi_def_cfa_offset 16
@@ -466,606 +469,677 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 1
  195              		.section	.rodata.main.str1.4,"aMS",%progbits,1
  196              		.align	2
  197              	.LC1:
- 198 0000 E88B8FE5 		.ascii	"\350\213\217\345\237\271\344\275\251\346\210\221\347"
- 198      9FB9E4BD 
- 198      A9E68891 
- 198      E7
- 199 000d 88B1E4BD 		.ascii	"\210\261\344\275\240\357\274\201\000"
- 199      A0EFBC81 
- 199      00
- 200 0016 0000     		.align	2
- 201              	.LC2:
- 202 0018 E9AB98E5 		.ascii	"\351\253\230\345\207\257\347\220\246\345\212\240\346"
- 202      87AFE790 
- 202      A6E58AA0 
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 9
+ 198 0000 25303264 		.ascii	"%02d/%02d/%02d\015\012\000"
+ 198      2F253032 
+ 198      642F2530 
+ 198      32640D0A 
+ 198      00
+ 199 0011 000000   		.align	2
+ 200              	.LC2:
+ 201 0014 E88B8FE5 		.ascii	"\350\213\217\345\237\271\344\275\251\346\210\221\347"
+ 201      9FB9E4BD 
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 9
 
 
- 202      E6
- 203 0025 B2B9EFBC 		.ascii	"\262\271\357\274\201\000"
- 203      8100
- 204 002b 00       		.align	2
- 205              	.LC3:
- 206 002c 31323334 		.ascii	"1234567890\000"
- 206      35363738 
- 206      393000
- 207 0037 00       		.align	2
+ 201      A9E68891 
+ 201      E7
+ 202 0021 88B1E4BD 		.ascii	"\210\261\344\275\240\357\274\201\000"
+ 202      A0EFBC81 
+ 202      00
+ 203 002a 0000     		.align	2
+ 204              	.LC3:
+ 205 002c E9AB98E5 		.ascii	"\351\253\230\345\207\257\347\220\246\345\212\240\346"
+ 205      87AFE790 
+ 205      A6E58AA0 
+ 205      E6
+ 206 0039 B2B9EFBC 		.ascii	"\262\271\357\274\201\000"
+ 206      8100
+ 207 003f 00       		.align	2
  208              	.LC4:
- 209 0038 61736466 		.ascii	"asdfghjkl\000"
- 209      67686A6B 
- 209      6C00
- 210              		.section	.text.main,"ax",%progbits
- 211              		.align	1
- 212              		.global	main
- 213              		.syntax unified
- 214              		.thumb
- 215              		.thumb_func
- 216              		.fpu softvfp
- 218              	main:
- 219              	.LFB69:
+ 209 0040 31323334 		.ascii	"1234567890\000"
+ 209      35363738 
+ 209      393000
+ 210 004b 00       		.align	2
+ 211              	.LC5:
+ 212 004c 61736466 		.ascii	"asdfghjkl\000"
+ 212      67686A6B 
+ 212      6C00
+ 213              		.section	.text.main,"ax",%progbits
+ 214              		.align	1
+ 215              		.global	main
+ 216              		.syntax unified
+ 217              		.thumb
+ 218              		.thumb_func
+ 219              		.fpu softvfp
+ 221              	main:
+ 222              	.LFB69:
   80:Src/main.c    ****     /* USER CODE BEGIN 1 */
- 220              		.loc 1 80 1 is_stmt 1 view -0
- 221              		.cfi_startproc
- 222              		@ Volatile: function does not return.
- 223              		@ args = 0, pretend = 0, frame = 1024
- 224              		@ frame_needed = 0, uses_anonymous_args = 0
- 225 0000 00B5     		push	{lr}
- 226              	.LCFI6:
- 227              		.cfi_def_cfa_offset 4
- 228              		.cfi_offset 14, -4
- 229 0002 ADF20C4D 		subw	sp, sp, #1036
- 230              	.LCFI7:
- 231              		.cfi_def_cfa_offset 1040
+ 223              		.loc 1 80 1 is_stmt 1 view -0
+ 224              		.cfi_startproc
+ 225              		@ Volatile: function does not return.
+ 226              		@ args = 0, pretend = 0, frame = 1024
+ 227              		@ frame_needed = 0, uses_anonymous_args = 0
+ 228 0000 00B5     		push	{lr}
+ 229              	.LCFI6:
+ 230              		.cfi_def_cfa_offset 4
+ 231              		.cfi_offset 14, -4
+ 232 0002 ADF20C4D 		subw	sp, sp, #1036
+ 233              	.LCFI7:
+ 234              		.cfi_def_cfa_offset 1040
   82:Src/main.c    ****         {
- 232              		.loc 1 82 5 view .LVU55
+ 235              		.loc 1 82 5 view .LVU55
   82:Src/main.c    ****         {
- 233              		.loc 1 82 19 is_stmt 0 view .LVU56
- 234 0006 4FF48062 		mov	r2, #1024
- 235 000a 2249     		ldr	r1, .L10
- 236 000c 02A8     		add	r0, sp, #8
- 237 000e FFF7FEFF 		bl	memcpy
- 238              	.LVL8:
+ 236              		.loc 1 82 19 is_stmt 0 view .LVU56
+ 237 0006 4FF48062 		mov	r2, #1024
+ 238 000a 3349     		ldr	r1, .L11
+ 239 000c 02A8     		add	r0, sp, #8
+ 240 000e FFF7FEFF 		bl	memcpy
+ 241              	.LVL8:
  153:Src/main.c    **** 
- 239              		.loc 1 153 5 is_stmt 1 view .LVU57
- 240 0012 FFF7FEFF 		bl	HAL_Init
- 241              	.LVL9:
+ 242              		.loc 1 153 5 is_stmt 1 view .LVU57
+ 243 0012 FFF7FEFF 		bl	HAL_Init
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 10
+
+
+ 244              	.LVL9:
  160:Src/main.c    **** 
- 242              		.loc 1 160 5 view .LVU58
- 243 0016 FFF7FEFF 		bl	SystemClock_Config
- 244              	.LVL10:
+ 245              		.loc 1 160 5 view .LVU58
+ 246 0016 FFF7FEFF 		bl	SystemClock_Config
+ 247              	.LVL10:
  167:Src/main.c    ****     MX_I2C1_Init();
- 245              		.loc 1 167 5 view .LVU59
- 246 001a FFF7FEFF 		bl	MX_GPIO_Init
- 247              	.LVL11:
+ 248              		.loc 1 167 5 view .LVU59
+ 249 001a FFF7FEFF 		bl	MX_GPIO_Init
+ 250              	.LVL11:
  168:Src/main.c    ****     MX_RTC_Init();
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 10
-
-
- 248              		.loc 1 168 5 view .LVU60
- 249 001e FFF7FEFF 		bl	MX_I2C1_Init
- 250              	.LVL12:
+ 251              		.loc 1 168 5 view .LVU60
+ 252 001e FFF7FEFF 		bl	MX_I2C1_Init
+ 253              	.LVL12:
  169:Src/main.c    ****     MX_USART1_UART_Init();
- 251              		.loc 1 169 5 view .LVU61
- 252 0022 FFF7FEFF 		bl	MX_RTC_Init
- 253              	.LVL13:
+ 254              		.loc 1 169 5 view .LVU61
+ 255 0022 FFF7FEFF 		bl	MX_RTC_Init
+ 256              	.LVL13:
  170:Src/main.c    ****     MX_TIM6_Init();
- 254              		.loc 1 170 5 view .LVU62
- 255 0026 FFF7FEFF 		bl	MX_USART1_UART_Init
- 256              	.LVL14:
+ 257              		.loc 1 170 5 view .LVU62
+ 258 0026 FFF7FEFF 		bl	MX_USART1_UART_Init
+ 259              	.LVL14:
  171:Src/main.c    ****     /* USER CODE BEGIN 2 */
- 257              		.loc 1 171 5 view .LVU63
- 258 002a FFF7FEFF 		bl	MX_TIM6_Init
- 259              	.LVL15:
+ 260              		.loc 1 171 5 view .LVU63
+ 261 002a FFF7FEFF 		bl	MX_TIM6_Init
+ 262              	.LVL15:
  173:Src/main.c    ****     OLED_CLS();
- 260              		.loc 1 173 5 view .LVU64
- 261 002e FFF7FEFF 		bl	OLED_Init
- 262              	.LVL16:
+ 263              		.loc 1 173 5 view .LVU64
+ 264 002e FFF7FEFF 		bl	OLED_Init
+ 265              	.LVL16:
  174:Src/main.c    **** 
- 263              		.loc 1 174 5 view .LVU65
- 264 0032 FFF7FEFF 		bl	OLED_CLS
- 265              	.LVL17:
+ 266              		.loc 1 174 5 view .LVU65
+ 267 0032 FFF7FEFF 		bl	OLED_CLS
+ 268              	.LVL17:
  176:Src/main.c    ****     /* USER CODE END 2 */
- 266              		.loc 1 176 5 view .LVU66
+ 269              		.loc 1 176 5 view .LVU66
  176:Src/main.c    ****     /* USER CODE END 2 */
- 267              		.loc 1 176 15 is_stmt 0 view .LVU67
- 268 0036 184B     		ldr	r3, .L10+4
- 269 0038 0122     		movs	r2, #1
- 270 003a 1A70     		strb	r2, [r3]
- 271              	.L8:
- 181:Src/main.c    ****     {
- 272              		.loc 1 181 5 is_stmt 1 discriminator 1 view .LVU68
+ 270              		.loc 1 176 15 is_stmt 0 view .LVU67
+ 271 0036 294B     		ldr	r3, .L11+4
+ 272 0038 0122     		movs	r2, #1
+ 273 003a 1A70     		strb	r2, [r3]
+ 274 003c 31E0     		b	.L9
+ 275              	.L8:
  196:Src/main.c    ****         show_chs_string(2, 0, "高凯琦加油！");
- 273              		.loc 1 196 9 discriminator 1 view .LVU69
- 274 003c 174A     		ldr	r2, .L10+8
- 275 003e 0021     		movs	r1, #0
- 276 0040 0846     		mov	r0, r1
- 277 0042 FFF7FEFF 		bl	show_chs_string
- 278              	.LVL18:
+ 276              		.loc 1 196 9 is_stmt 1 view .LVU68
+ 277 003e 284A     		ldr	r2, .L11+8
+ 278 0040 0021     		movs	r1, #0
+ 279 0042 0846     		mov	r0, r1
+ 280 0044 FFF7FEFF 		bl	show_chs_string
+ 281              	.LVL18:
  197:Src/main.c    ****         show_string_atype(4, 0, "1234567890", 10);
- 279              		.loc 1 197 9 discriminator 1 view .LVU70
- 280 0046 164A     		ldr	r2, .L10+12
- 281 0048 0021     		movs	r1, #0
- 282 004a 0220     		movs	r0, #2
- 283 004c FFF7FEFF 		bl	show_chs_string
- 284              	.LVL19:
+ 282              		.loc 1 197 9 view .LVU69
+ 283 0048 264A     		ldr	r2, .L11+12
+ 284 004a 0021     		movs	r1, #0
+ 285 004c 0220     		movs	r0, #2
+ 286 004e FFF7FEFF 		bl	show_chs_string
+ 287              	.LVL19:
  198:Src/main.c    ****         show_string_atype(6, 0, "asdfghjkl", 9);
- 285              		.loc 1 198 9 discriminator 1 view .LVU71
- 286 0050 0A23     		movs	r3, #10
- 287 0052 144A     		ldr	r2, .L10+16
- 288 0054 0021     		movs	r1, #0
- 289 0056 0420     		movs	r0, #4
- 290 0058 FFF7FEFF 		bl	show_string_atype
- 291              	.LVL20:
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 11
+
+
+ 288              		.loc 1 198 9 view .LVU70
+ 289 0052 0A23     		movs	r3, #10
+ 290 0054 244A     		ldr	r2, .L11+16
+ 291 0056 0021     		movs	r1, #0
+ 292 0058 0420     		movs	r0, #4
+ 293 005a FFF7FEFF 		bl	show_string_atype
+ 294              	.LVL20:
  199:Src/main.c    ****         HAL_Delay(3000);
- 292              		.loc 1 199 9 discriminator 1 view .LVU72
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 11
-
-
- 293 005c 0923     		movs	r3, #9
- 294 005e 124A     		ldr	r2, .L10+20
- 295 0060 0021     		movs	r1, #0
- 296 0062 0620     		movs	r0, #6
- 297 0064 FFF7FEFF 		bl	show_string_atype
- 298              	.LVL21:
+ 295              		.loc 1 199 9 view .LVU71
+ 296 005e 0923     		movs	r3, #9
+ 297 0060 224A     		ldr	r2, .L11+20
+ 298 0062 0021     		movs	r1, #0
+ 299 0064 0620     		movs	r0, #6
+ 300 0066 FFF7FEFF 		bl	show_string_atype
+ 301              	.LVL21:
  200:Src/main.c    ****         OLED_CLS();
- 299              		.loc 1 200 9 discriminator 1 view .LVU73
- 300 0068 40F6B830 		movw	r0, #3000
- 301 006c FFF7FEFF 		bl	HAL_Delay
- 302              	.LVL22:
+ 302              		.loc 1 200 9 view .LVU72
+ 303 006a 40F6B830 		movw	r0, #3000
+ 304 006e FFF7FEFF 		bl	HAL_Delay
+ 305              	.LVL22:
  201:Src/main.c    ****         show_drawBMP(0, 0, 7, 127, BMP1);
- 303              		.loc 1 201 9 discriminator 1 view .LVU74
- 304 0070 FFF7FEFF 		bl	OLED_CLS
- 305              	.LVL23:
+ 306              		.loc 1 201 9 view .LVU73
+ 307 0072 FFF7FEFF 		bl	OLED_CLS
+ 308              	.LVL23:
  202:Src/main.c    ****         HAL_Delay(3000);
- 306              		.loc 1 202 9 discriminator 1 view .LVU75
- 307 0074 02AB     		add	r3, sp, #8
- 308 0076 0093     		str	r3, [sp]
- 309 0078 7F23     		movs	r3, #127
- 310 007a 0722     		movs	r2, #7
- 311 007c 0021     		movs	r1, #0
- 312 007e 0846     		mov	r0, r1
- 313 0080 FFF7FEFF 		bl	show_drawBMP
- 314              	.LVL24:
+ 309              		.loc 1 202 9 view .LVU74
+ 310 0076 02AB     		add	r3, sp, #8
+ 311 0078 0093     		str	r3, [sp]
+ 312 007a 7F23     		movs	r3, #127
+ 313 007c 0722     		movs	r2, #7
+ 314 007e 0021     		movs	r1, #0
+ 315 0080 0846     		mov	r0, r1
+ 316 0082 FFF7FEFF 		bl	show_drawBMP
+ 317              	.LVL24:
  203:Src/main.c    ****         OLED_CLS();
- 315              		.loc 1 203 9 discriminator 1 view .LVU76
- 316 0084 40F6B830 		movw	r0, #3000
- 317 0088 FFF7FEFF 		bl	HAL_Delay
- 318              	.LVL25:
- 204:Src/main.c    ****     }
- 319              		.loc 1 204 9 discriminator 1 view .LVU77
- 320 008c FFF7FEFF 		bl	OLED_CLS
- 321              	.LVL26:
+ 318              		.loc 1 203 9 view .LVU75
+ 319 0086 40F6B830 		movw	r0, #3000
+ 320 008a FFF7FEFF 		bl	HAL_Delay
+ 321              	.LVL25:
+ 204:Src/main.c    ****         display_time();
+ 322              		.loc 1 204 9 view .LVU76
+ 323 008e FFF7FEFF 		bl	OLED_CLS
+ 324              	.LVL26:
+ 205:Src/main.c    ****         HAL_Delay(3000);
+ 325              		.loc 1 205 9 view .LVU77
+ 326 0092 FFF7FEFF 		bl	display_time
+ 327              	.LVL27:
+ 206:Src/main.c    ****         OLED_CLS();
+ 328              		.loc 1 206 9 view .LVU78
+ 329 0096 40F6B830 		movw	r0, #3000
+ 330 009a FFF7FEFF 		bl	HAL_Delay
+ 331              	.LVL28:
+ 207:Src/main.c    ****     }
+ 332              		.loc 1 207 9 view .LVU79
+ 333 009e FFF7FEFF 		bl	OLED_CLS
+ 334              	.LVL29:
  181:Src/main.c    ****     {
- 322              		.loc 1 181 11 discriminator 1 view .LVU78
- 323 0090 D4E7     		b	.L8
- 324              	.L11:
- 325 0092 00BF     		.align	2
- 326              	.L10:
- 327 0094 00000000 		.word	.LANCHOR0
- 328 0098 00000000 		.word	g_1s_flag
- 329 009c 00000000 		.word	.LC1
- 330 00a0 18000000 		.word	.LC2
- 331 00a4 2C000000 		.word	.LC3
- 332 00a8 38000000 		.word	.LC4
- 333              		.cfi_endproc
- 334              	.LFE69:
- 336              		.section	.text.Error_Handler,"ax",%progbits
- 337              		.align	1
- 338              		.global	Error_Handler
- 339              		.syntax unified
- 340              		.thumb
- 341              		.thumb_func
- 342              		.fpu softvfp
- 344              	Error_Handler:
- 345              	.LFB71:
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 12
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 12
 
 
- 252:Src/main.c    **** 
- 253:Src/main.c    **** /* USER CODE BEGIN 4 */
- 254:Src/main.c    **** 
- 255:Src/main.c    **** /* USER CODE END 4 */
- 256:Src/main.c    **** 
- 257:Src/main.c    **** /**
- 258:Src/main.c    ****   * @brief  This function is executed in case of error occurrence.
- 259:Src/main.c    ****   * @retval None
- 260:Src/main.c    ****   */
- 261:Src/main.c    **** void Error_Handler(void)
- 262:Src/main.c    **** {
- 346              		.loc 1 262 1 view -0
- 347              		.cfi_startproc
- 348              		@ args = 0, pretend = 0, frame = 0
- 349              		@ frame_needed = 0, uses_anonymous_args = 0
- 350              		@ link register save eliminated.
- 263:Src/main.c    ****     /* USER CODE BEGIN Error_Handler_Debug */
- 264:Src/main.c    ****     /* User can add his own implementation to report the HAL error return state */
- 265:Src/main.c    **** 
- 266:Src/main.c    ****     /* USER CODE END Error_Handler_Debug */
- 267:Src/main.c    **** }
- 351              		.loc 1 267 1 view .LVU80
- 352 0000 7047     		bx	lr
- 353              		.cfi_endproc
- 354              	.LFE71:
- 356              		.comm	gettime,3,4
- 357              		.comm	getdate,4,4
- 358              		.section	.rodata
- 359              		.align	2
- 360              		.set	.LANCHOR0,. + 0
- 361              	.LC0:
- 362 0000 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 362      00000000 
- 362      00000000 
- 362      00
- 363 000d 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 363      00000000 
- 363      00000000 
- 363      00
- 364 001a 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 364      00000000 
- 364      00000000 
- 364      00
- 365 0027 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 365      00000000 
- 365      00000000 
- 365      00
- 366 0034 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 366      00000000 
- 366      00000000 
- 366      00
- 367 0041 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 367      00000000 
- 367      00000000 
- 367      00
- 368 004e 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\340\370\376\377"
- 368      00000000 
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 13
+ 335              		.loc 1 181 11 view .LVU80
+ 336              	.L9:
+ 181:Src/main.c    ****     {
+ 337              		.loc 1 181 5 view .LVU81
+ 186:Src/main.c    ****         {
+ 338              		.loc 1 186 9 view .LVU82
+ 186:Src/main.c    ****         {
+ 339              		.loc 1 186 13 is_stmt 0 view .LVU83
+ 340 00a2 0E4B     		ldr	r3, .L11+4
+ 341 00a4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 186:Src/main.c    ****         {
+ 342              		.loc 1 186 12 view .LVU84
+ 343 00a6 002B     		cmp	r3, #0
+ 344 00a8 C9D0     		beq	.L8
+ 188:Src/main.c    ****             get_time(&gettime, &getdate);
+ 345              		.loc 1 188 13 is_stmt 1 view .LVU85
+ 188:Src/main.c    ****             get_time(&gettime, &getdate);
+ 346              		.loc 1 188 23 is_stmt 0 view .LVU86
+ 347 00aa 0C4B     		ldr	r3, .L11+4
+ 348 00ac 0022     		movs	r2, #0
+ 349 00ae 1A70     		strb	r2, [r3]
+ 189:Src/main.c    ****             //蹇呴』HAL_RTC_GetTime鍦ㄥ墠HAL_RTC_GetDate鍦ㄥ悗,鍚﹀垯鑾峰彇鏃堕棿
+ 350              		.loc 1 189 13 is_stmt 1 view .LVU87
+ 351 00b0 0F4C     		ldr	r4, .L11+24
+ 352 00b2 104D     		ldr	r5, .L11+28
+ 353 00b4 2146     		mov	r1, r4
+ 354 00b6 2846     		mov	r0, r5
+ 355 00b8 FFF7FEFF 		bl	get_time
+ 356              	.LVL30:
+ 192:Src/main.c    ****             /*display date format:yy/mm/dd*/
+ 357              		.loc 1 192 13 view .LVU88
+ 358 00bc 0E4E     		ldr	r6, .L11+32
+ 359 00be AB78     		ldrb	r3, [r5, #2]	@ zero_extendqisi2
+ 360 00c0 6A78     		ldrb	r2, [r5, #1]	@ zero_extendqisi2
+ 361 00c2 2978     		ldrb	r1, [r5]	@ zero_extendqisi2
+ 362 00c4 3046     		mov	r0, r6
+ 363 00c6 FFF7FEFF 		bl	printf
+ 364              	.LVL31:
+ 194:Src/main.c    ****         }
+ 365              		.loc 1 194 13 view .LVU89
+ 366 00ca A378     		ldrb	r3, [r4, #2]	@ zero_extendqisi2
+ 367 00cc 6278     		ldrb	r2, [r4, #1]	@ zero_extendqisi2
+ 368 00ce E178     		ldrb	r1, [r4, #3]	@ zero_extendqisi2
+ 369 00d0 3046     		mov	r0, r6
+ 370 00d2 FFF7FEFF 		bl	printf
+ 371              	.LVL32:
+ 372 00d6 B2E7     		b	.L8
+ 373              	.L12:
+ 374              		.align	2
+ 375              	.L11:
+ 376 00d8 00000000 		.word	.LANCHOR0
+ 377 00dc 00000000 		.word	g_1s_flag
+ 378 00e0 14000000 		.word	.LC2
+ 379 00e4 2C000000 		.word	.LC3
+ 380 00e8 40000000 		.word	.LC4
+ 381 00ec 4C000000 		.word	.LC5
+ 382 00f0 00000000 		.word	getdate
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 13
 
 
- 368      00E0F8FE 
- 368      FF
- 369 005b 3FFFFFFE 		.ascii	"?\377\377\376\300\000\000\000\000\000\000\000\000\000"
- 369      C0000000 
- 369      00000000 
- 369      0000
- 370 0069 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 370      00000000 
- 370      00000000 
- 370      00
- 371 0076 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 371      00000000 
- 371      00000000 
- 371      00
- 372 0083 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 372      00000000 
- 372      00000000 
- 372      00
- 373 0090 00000000 		.ascii	"\000\000\000\000\200\200\200\200\200\200\200\200\200"
- 373      80808080 
- 373      80808080 
- 373      80
- 374 009d 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 374      00000000 
- 374      00000000 
- 374      00
- 375 00aa 00000000 		.ascii	"\000\000\000\000\000\000\000\200\200\200\300\300\300"
- 375      00000080 
- 375      8080C0C0 
- 375      C0
- 376 00b7 C0C0C080 		.ascii	"\300\300\300\200\000\000\000\000\000\000\000\000\000"
- 376      00000000 
- 376      00000000 
- 376      00
- 377 00c4 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 377      00000000 
- 377      00000000 
- 377      00
- 378 00d1 000000C0 		.ascii	"\000\000\000\300\374\376\377\037\017\000\000\001\037"
- 378      FCFEFF1F 
- 378      0F000001 
- 378      1F
- 379 00de 7FFFFEF0 		.ascii	"\177\377\376\360\300\000\000\000\000\000\000\000\000"
- 379      C0000000 
- 379      00000000 
- 379      00
- 380 00eb 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 380      00000000 
- 380      00000000 
- 380      00
- 381 00f8 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 381      00000000 
- 381      00000000 
- 381      00
- 382 0105 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\340\370\376\377"
- 382      00000000 
- 382      00E0F8FE 
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 14
-
-
- 382      FF
- 383 0112 3F0F0707 		.ascii	"?\017\007\007\007\003\003\003\007\007\007\007\007\007"
- 383      07030303 
- 383      07070707 
- 383      0707
- 384 0120 FFFFFFC0 		.ascii	"\377\377\377\300\300\340\340\360\360\360xx|<<\036\037"
- 384      C0E0E0F0 
- 384      F0F07878 
- 384      7C3C3C1E 
- 384      1F
- 385 0131 1F0F0703 		.ascii	"\037\017\007\003\003\003\003\017\037?\376\374\370\300"
- 385      0303030F 
- 385      1F3FFEFC 
- 385      F8C0
- 386 013f 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 386      00000000 
- 386      00000000 
- 386      00
- 387 014c 00000000 		.ascii	"\000\000\000\000\000\200\374\376\377\037\017\001\200"
- 387      0080FCFE 
- 387      FF1F0F01 
- 387      80
- 388 0159 80808080 		.ascii	"\200\200\200\200\200\200\201\217\377\377\377\360\340"
- 388      8080818F 
- 388      FFFFFFF0 
- 388      E0
- 389 0166 80808080 		.ascii	"\200\200\200\200\200\200\200\200\200\200\200\200\200"
- 389      80808080 
- 389      80808080 
- 389      80
- 390 0173 80808080 		.ascii	"\200\200\200\200\200\200\200\200\200\200\000\000\000"
- 390      80808080 
- 390      80800000 
- 390      00
- 391 0180 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 391      00000000 
- 391      00000000 
- 391      00
- 392 018d 00FFFFFF 		.ascii	"\000\377\377\377\000\000\000\000\000\000\000\000\000"
- 392      00000000 
- 392      00000000 
- 392      00
- 393 019a 00000000 		.ascii	"\000\000\000\000\000\000\007\007\007\003\003\001\001"
- 393      00000707 
- 393      07030301 
- 393      01
- 394 01a7 01000000 		.ascii	"\001\000\000\000\000\000\000\000\000\000\000\000\000"
- 394      00000000 
- 394      00000000 
- 394      00
- 395 01b4 00000000 		.ascii	"\000\000\000\000\000\000\000\001\007\037\377\377\374"
- 395      00000001 
- 395      071FFFFF 
- 395      FC
- 396 01c1 000000FE 		.ascii	"\000\000\000\376\376\376\374\234\034\034\034\034\034"
- 396      FEFEFC9C 
- 396      1C1C1C1C 
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 15
-
-
- 396      1C
- 397 01ce 1C1CFCFF 		.ascii	"\034\034\374\377\377?\037\037\037??\177?\023\003\003"
- 397      FF3F1F1F 
- 397      1F3F3F7F 
- 397      3F130303 
- 398 01de 03030303 		.ascii	"\003\003\003\003\003\003\177\377\377\363\003\003\003"
- 398      03037FFF 
- 398      FFF30303 
- 398      03
- 399 01eb 83C3C3E3 		.ascii	"\203\303\303\343\343\363\373\373{???\037\017\017\007"
- 399      E3F3FBFB 
- 399      7B3F3F3F 
- 399      1F0F0F07 
- 400 01fb 03030000 		.ascii	"\003\003\000\000\000\000\000\000\000\000\000\000\000"
- 400      00000000 
- 400      00000000 
- 400      00
- 401 0208 00000000 		.ascii	"\000\000\000\000\000\000\377\377\377\000\000\000\000"
- 401      0000FFFF 
- 401      FF000000 
- 401      00
- 402 0215 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 402      00000000 
- 402      00000000 
- 402      00
- 403 0222 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 403      00000000 
- 403      00000000 
- 403      00
- 404 022f 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 404      00000000 
- 404      00000000 
- 404      00
- 405 023c 0000FFFF 		.ascii	"\000\000\377\377\377\000\000\000\000\003\017??>8xx\370"
- 405      FF000000 
- 405      00030F3F 
- 405      3F3E3878 
- 405      78F8
- 406 024e F0FFFFFF 		.ascii	"\360\377\377\377\347\300\300\200\000\000\000\000\000"
- 406      E7C0C080 
- 406      00000000 
- 406      00
- 407 025b 00000000 		.ascii	"\000\000\000\000\000\200\300\340\360\360\377\177\377"
- 407      0080C0E0 
- 407      F0F0FF7F 
- 407      FF
- 408 0268 FEFE9F0F 		.ascii	"\376\376\237\017\017\007\003\001\001\000\000\000\000"
- 408      0F070301 
- 408      01000000 
- 408      00
- 409 0275 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 409      00000000 
- 409      00000000 
- 409      00
- 410 0282 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\177"
- 410      00000000 
- 410      00000000 
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 16
-
-
- 410      7F
- 411 028f FFFFF0E0 		.ascii	"\377\377\360\340\300\200\000\000\000\000\000\000\000"
- 411      C0800000 
- 411      00000000 
- 411      00
- 412 029c 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 412      00000000 
- 412      00000000 
- 412      00
- 413 02a9 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 413      00000000 
- 413      00000000 
- 413      00
- 414 02b6 00000080 		.ascii	"\000\000\000\200\300\340\370\377\377?\007\000\000\000"
- 414      C0E0F8FF 
- 414      FF3F0700 
- 414      0000
- 415 02c4 00000000 		.ascii	"\000\000\000\000\000\000\000\000\360\377\377\177\001"
+ 383 00f4 00000000 		.word	gettime
+ 384 00f8 00000000 		.word	.LC1
+ 385              		.cfi_endproc
+ 386              	.LFE69:
+ 388              		.section	.text.Error_Handler,"ax",%progbits
+ 389              		.align	1
+ 390              		.global	Error_Handler
+ 391              		.syntax unified
+ 392              		.thumb
+ 393              		.thumb_func
+ 394              		.fpu softvfp
+ 396              	Error_Handler:
+ 397              	.LFB71:
+ 255:Src/main.c    **** 
+ 256:Src/main.c    **** /* USER CODE BEGIN 4 */
+ 257:Src/main.c    **** 
+ 258:Src/main.c    **** /* USER CODE END 4 */
+ 259:Src/main.c    **** 
+ 260:Src/main.c    **** /**
+ 261:Src/main.c    ****   * @brief  This function is executed in case of error occurrence.
+ 262:Src/main.c    ****   * @retval None
+ 263:Src/main.c    ****   */
+ 264:Src/main.c    **** void Error_Handler(void)
+ 265:Src/main.c    **** {
+ 398              		.loc 1 265 1 view -0
+ 399              		.cfi_startproc
+ 400              		@ args = 0, pretend = 0, frame = 0
+ 401              		@ frame_needed = 0, uses_anonymous_args = 0
+ 402              		@ link register save eliminated.
+ 266:Src/main.c    ****     /* USER CODE BEGIN Error_Handler_Debug */
+ 267:Src/main.c    ****     /* User can add his own implementation to report the HAL error return state */
+ 268:Src/main.c    **** 
+ 269:Src/main.c    ****     /* USER CODE END Error_Handler_Debug */
+ 270:Src/main.c    **** }
+ 403              		.loc 1 270 1 view .LVU91
+ 404 0000 7047     		bx	lr
+ 405              		.cfi_endproc
+ 406              	.LFE71:
+ 408              		.comm	gettime,3,4
+ 409              		.comm	getdate,4,4
+ 410              		.section	.rodata
+ 411              		.align	2
+ 412              		.set	.LANCHOR0,. + 0
+ 413              	.LC0:
+ 414 0000 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 414      00000000 
+ 414      00000000 
+ 414      00
+ 415 000d 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  415      00000000 
- 415      F0FFFF7F 
- 415      01
- 416 02d1 01038787 		.ascii	"\001\003\207\207\317\337\377\376\374\374\370\374\376"
- 416      CFDFFFFE 
- 416      FCFCF8FC 
- 416      FE
- 417 02de FFFFEFC7 		.ascii	"\377\377\357\307\307\203\001\000\000\003\017\037\377"
- 417      C7830100 
- 417      00030F1F 
- 417      FF
- 418 02eb FEFCE0C0 		.ascii	"\376\374\340\300\000\000\000\000\000\000\000\000\000"
+ 415      00000000 
+ 415      00
+ 416 001a 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 416      00000000 
+ 416      00000000 
+ 416      00
+ 417 0027 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 14
+
+
+ 417      00000000 
+ 417      00000000 
+ 417      00
+ 418 0034 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  418      00000000 
  418      00000000 
  418      00
- 419 02f8 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 419 0041 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  419      00000000 
  419      00000000 
  419      00
- 420 0305 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\001\003"
+ 420 004e 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\340\370\376\377"
  420      00000000 
- 420      00000001 
- 420      03
- 421 0312 070F1F3F 		.ascii	"\007\017\037?~|\370\360\360\340\340\300\300\200\200"
- 421      7E7CF8F0 
- 421      F0E0E0C0 
- 421      C08080
- 422 0321 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 420      00E0F8FE 
+ 420      FF
+ 421 005b 3FFFFFFE 		.ascii	"?\377\377\376\300\000\000\000\000\000\000\000\000\000"
+ 421      C0000000 
+ 421      00000000 
+ 421      0000
+ 422 0069 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  422      00000000 
  422      00000000 
  422      00
- 423 032e 00000000 		.ascii	"\000\000\000\000\200\300\340\360\370\374~?\037\017\003"
- 423      80C0E0F0 
- 423      F8FC7E3F 
- 423      1F0F03
- 424 033d 01000000 		.ascii	"\001\000\000\000\000\000\000\000\000\000\000\000\000"
+ 423 0076 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 423      00000000 
+ 423      00000000 
+ 423      00
+ 424 0083 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  424      00000000 
  424      00000000 
  424      00
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 17
-
-
- 425 034a 00007F7F 		.ascii	"\000\000\177\177\177|>?\037\017\007\007\003\003\001"
- 425      7F7C3E3F 
- 425      1F0F0707 
- 425      030301
- 426 0359 01000000 		.ascii	"\001\000\000\000\000\001\001\003\007\017\037\037><<"
- 426      00010103 
- 426      070F1F1F 
- 426      3E3C3C
- 427 0368 7878F8F1 		.ascii	"xx\370\361\377\377\377\376\374\300\000\000\000\000\000"
- 427      FFFFFFFE 
- 427      FCC00000 
- 427      000000
- 428 0377 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 425 0090 00000000 		.ascii	"\000\000\000\000\200\200\200\200\200\200\200\200\200"
+ 425      80808080 
+ 425      80808080 
+ 425      80
+ 426 009d 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 426      00000000 
+ 426      00000000 
+ 426      00
+ 427 00aa 00000000 		.ascii	"\000\000\000\000\000\000\000\200\200\200\300\300\300"
+ 427      00000080 
+ 427      8080C0C0 
+ 427      C0
+ 428 00b7 C0C0C080 		.ascii	"\300\300\300\200\000\000\000\000\000\000\000\000\000"
  428      00000000 
  428      00000000 
  428      00
- 429 0384 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 429 00c4 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  429      00000000 
  429      00000000 
  429      00
- 430 0391 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\001\001\003\003"
- 430      00000000 
- 430      00010103 
- 430      03
- 431 039e 070F0F0F 		.ascii	"\007\017\017\017\036>><8xx\370\374\376\376\036\016\016"
- 431      1E3E3E3C 
- 431      387878F8 
- 431      FCFEFE1E 
- 431      0E0E
- 432 03b0 0F0F0F07 		.ascii	"\017\017\017\007\007\003\001\000\000\000\000\000\000"
- 432      07030100 
+ 430 00d1 000000C0 		.ascii	"\000\000\000\300\374\376\377\037\017\000\000\001\037"
+ 430      FCFEFF1F 
+ 430      0F000001 
+ 430      1F
+ 431 00de 7FFFFEF0 		.ascii	"\177\377\376\360\300\000\000\000\000\000\000\000\000"
+ 431      C0000000 
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 15
+
+
+ 431      00000000 
+ 431      00
+ 432 00eb 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 432      00000000 
  432      00000000 
  432      00
- 433 03bd 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 433 00f8 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  433      00000000 
  433      00000000 
  433      00
- 434 03ca 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 434 0105 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\340\370\376\377"
  434      00000000 
- 434      00000000 
- 434      00
- 435 03d7 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 435      00000000 
- 435      00000000 
- 435      00
- 436 03e4 00000000 		.ascii	"\000\000\000\000\000\000\000\000\001\003\007\007\017"
- 436      00000000 
- 436      01030707 
- 436      0F
- 437 03f1 0F0F0000 		.ascii	"\017\017\000\000\000\000\000\000\000\000\000\000\000"
- 437      00000000 
- 437      00000000 
- 437      00
- 438 03fe 0000     		.ascii	"\000\000"
- 439              		.text
- 440              	.Letext0:
- 441              		.file 2 "f:\\work_project\\9 2019-q4-major\\arm-none-eabi\\include\\machine\\_default_types.h"
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 18
+ 434      00E0F8FE 
+ 434      FF
+ 435 0112 3F0F0707 		.ascii	"?\017\007\007\007\003\003\003\007\007\007\007\007\007"
+ 435      07030303 
+ 435      07070707 
+ 435      0707
+ 436 0120 FFFFFFC0 		.ascii	"\377\377\377\300\300\340\340\360\360\360xx|<<\036\037"
+ 436      C0E0E0F0 
+ 436      F0F07878 
+ 436      7C3C3C1E 
+ 436      1F
+ 437 0131 1F0F0703 		.ascii	"\037\017\007\003\003\003\003\017\037?\376\374\370\300"
+ 437      0303030F 
+ 437      1F3FFEFC 
+ 437      F8C0
+ 438 013f 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 438      00000000 
+ 438      00000000 
+ 438      00
+ 439 014c 00000000 		.ascii	"\000\000\000\000\000\200\374\376\377\037\017\001\200"
+ 439      0080FCFE 
+ 439      FF1F0F01 
+ 439      80
+ 440 0159 80808080 		.ascii	"\200\200\200\200\200\200\201\217\377\377\377\360\340"
+ 440      8080818F 
+ 440      FFFFFFF0 
+ 440      E0
+ 441 0166 80808080 		.ascii	"\200\200\200\200\200\200\200\200\200\200\200\200\200"
+ 441      80808080 
+ 441      80808080 
+ 441      80
+ 442 0173 80808080 		.ascii	"\200\200\200\200\200\200\200\200\200\200\000\000\000"
+ 442      80808080 
+ 442      80800000 
+ 442      00
+ 443 0180 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 443      00000000 
+ 443      00000000 
+ 443      00
+ 444 018d 00FFFFFF 		.ascii	"\000\377\377\377\000\000\000\000\000\000\000\000\000"
+ 444      00000000 
+ 444      00000000 
+ 444      00
+ 445 019a 00000000 		.ascii	"\000\000\000\000\000\000\007\007\007\003\003\001\001"
+ 445      00000707 
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 16
 
 
- 442              		.file 3 "f:\\work_project\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\_stdint.h"
- 443              		.file 4 "Drivers/CMSIS/Include/core_cm3.h"
- 444              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
- 445              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h"
- 446              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
- 447              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h"
- 448              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h"
- 449              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
- 450              		.file 11 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h"
- 451              		.file 12 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc.h"
- 452              		.file 13 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
- 453              		.file 14 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
- 454              		.file 15 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
- 455              		.file 16 "Inc/i2c.h"
- 456              		.file 17 "Inc/rtc.h"
- 457              		.file 18 "Inc/tim.h"
- 458              		.file 19 "Inc/usart.h"
- 459              		.file 20 "f:\\work_project\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\lock.h"
- 460              		.file 21 "f:\\work_project\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\_types.h"
- 461              		.file 22 "f:\\work_project\\9 2019-q4-major\\lib\\gcc\\arm-none-eabi\\9.2.1\\include\\stddef.h"
- 462              		.file 23 "f:\\work_project\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\reent.h"
- 463              		.file 24 "f:\\work_project\\9 2019-q4-major\\arm-none-eabi\\include\\stdio.h"
- 464              		.file 25 "f:\\work_project\\9 2019-q4-major\\arm-none-eabi\\include\\stdlib.h"
- 465              		.file 26 "Inc/gpio.h"
- 466              		.file 27 "Inc/oled.h"
- 467              		.file 28 "<built-in>"
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccowCdqA.s 			page 19
+ 445      07030301 
+ 445      01
+ 446 01a7 01000000 		.ascii	"\001\000\000\000\000\000\000\000\000\000\000\000\000"
+ 446      00000000 
+ 446      00000000 
+ 446      00
+ 447 01b4 00000000 		.ascii	"\000\000\000\000\000\000\000\001\007\037\377\377\374"
+ 447      00000001 
+ 447      071FFFFF 
+ 447      FC
+ 448 01c1 000000FE 		.ascii	"\000\000\000\376\376\376\374\234\034\034\034\034\034"
+ 448      FEFEFC9C 
+ 448      1C1C1C1C 
+ 448      1C
+ 449 01ce 1C1CFCFF 		.ascii	"\034\034\374\377\377?\037\037\037??\177?\023\003\003"
+ 449      FF3F1F1F 
+ 449      1F3F3F7F 
+ 449      3F130303 
+ 450 01de 03030303 		.ascii	"\003\003\003\003\003\003\177\377\377\363\003\003\003"
+ 450      03037FFF 
+ 450      FFF30303 
+ 450      03
+ 451 01eb 83C3C3E3 		.ascii	"\203\303\303\343\343\363\373\373{???\037\017\017\007"
+ 451      E3F3FBFB 
+ 451      7B3F3F3F 
+ 451      1F0F0F07 
+ 452 01fb 03030000 		.ascii	"\003\003\000\000\000\000\000\000\000\000\000\000\000"
+ 452      00000000 
+ 452      00000000 
+ 452      00
+ 453 0208 00000000 		.ascii	"\000\000\000\000\000\000\377\377\377\000\000\000\000"
+ 453      0000FFFF 
+ 453      FF000000 
+ 453      00
+ 454 0215 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 454      00000000 
+ 454      00000000 
+ 454      00
+ 455 0222 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 455      00000000 
+ 455      00000000 
+ 455      00
+ 456 022f 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 456      00000000 
+ 456      00000000 
+ 456      00
+ 457 023c 0000FFFF 		.ascii	"\000\000\377\377\377\000\000\000\000\003\017??>8xx\370"
+ 457      FF000000 
+ 457      00030F3F 
+ 457      3F3E3878 
+ 457      78F8
+ 458 024e F0FFFFFF 		.ascii	"\360\377\377\377\347\300\300\200\000\000\000\000\000"
+ 458      E7C0C080 
+ 458      00000000 
+ 458      00
+ 459 025b 00000000 		.ascii	"\000\000\000\000\000\200\300\340\360\360\377\177\377"
+ 459      0080C0E0 
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 17
+
+
+ 459      F0F0FF7F 
+ 459      FF
+ 460 0268 FEFE9F0F 		.ascii	"\376\376\237\017\017\007\003\001\001\000\000\000\000"
+ 460      0F070301 
+ 460      01000000 
+ 460      00
+ 461 0275 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 461      00000000 
+ 461      00000000 
+ 461      00
+ 462 0282 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\177"
+ 462      00000000 
+ 462      00000000 
+ 462      7F
+ 463 028f FFFFF0E0 		.ascii	"\377\377\360\340\300\200\000\000\000\000\000\000\000"
+ 463      C0800000 
+ 463      00000000 
+ 463      00
+ 464 029c 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 464      00000000 
+ 464      00000000 
+ 464      00
+ 465 02a9 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 465      00000000 
+ 465      00000000 
+ 465      00
+ 466 02b6 00000080 		.ascii	"\000\000\000\200\300\340\370\377\377?\007\000\000\000"
+ 466      C0E0F8FF 
+ 466      FF3F0700 
+ 466      0000
+ 467 02c4 00000000 		.ascii	"\000\000\000\000\000\000\000\000\360\377\377\177\001"
+ 467      00000000 
+ 467      F0FFFF7F 
+ 467      01
+ 468 02d1 01038787 		.ascii	"\001\003\207\207\317\337\377\376\374\374\370\374\376"
+ 468      CFDFFFFE 
+ 468      FCFCF8FC 
+ 468      FE
+ 469 02de FFFFEFC7 		.ascii	"\377\377\357\307\307\203\001\000\000\003\017\037\377"
+ 469      C7830100 
+ 469      00030F1F 
+ 469      FF
+ 470 02eb FEFCE0C0 		.ascii	"\376\374\340\300\000\000\000\000\000\000\000\000\000"
+ 470      00000000 
+ 470      00000000 
+ 470      00
+ 471 02f8 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 471      00000000 
+ 471      00000000 
+ 471      00
+ 472 0305 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\001\003"
+ 472      00000000 
+ 472      00000001 
+ 472      03
+ 473 0312 070F1F3F 		.ascii	"\007\017\037?~|\370\360\360\340\340\300\300\200\200"
+ 473      7E7CF8F0 
+ 473      F0E0E0C0 
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 18
+
+
+ 473      C08080
+ 474 0321 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 474      00000000 
+ 474      00000000 
+ 474      00
+ 475 032e 00000000 		.ascii	"\000\000\000\000\200\300\340\360\370\374~?\037\017\003"
+ 475      80C0E0F0 
+ 475      F8FC7E3F 
+ 475      1F0F03
+ 476 033d 01000000 		.ascii	"\001\000\000\000\000\000\000\000\000\000\000\000\000"
+ 476      00000000 
+ 476      00000000 
+ 476      00
+ 477 034a 00007F7F 		.ascii	"\000\000\177\177\177|>?\037\017\007\007\003\003\001"
+ 477      7F7C3E3F 
+ 477      1F0F0707 
+ 477      030301
+ 478 0359 01000000 		.ascii	"\001\000\000\000\000\001\001\003\007\017\037\037><<"
+ 478      00010103 
+ 478      070F1F1F 
+ 478      3E3C3C
+ 479 0368 7878F8F1 		.ascii	"xx\370\361\377\377\377\376\374\300\000\000\000\000\000"
+ 479      FFFFFFFE 
+ 479      FCC00000 
+ 479      000000
+ 480 0377 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 480      00000000 
+ 480      00000000 
+ 480      00
+ 481 0384 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 481      00000000 
+ 481      00000000 
+ 481      00
+ 482 0391 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\001\001\003\003"
+ 482      00000000 
+ 482      00010103 
+ 482      03
+ 483 039e 070F0F0F 		.ascii	"\007\017\017\017\036>><8xx\370\374\376\376\036\016\016"
+ 483      1E3E3E3C 
+ 483      387878F8 
+ 483      FCFEFE1E 
+ 483      0E0E
+ 484 03b0 0F0F0F07 		.ascii	"\017\017\017\007\007\003\001\000\000\000\000\000\000"
+ 484      07030100 
+ 484      00000000 
+ 484      00
+ 485 03bd 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 485      00000000 
+ 485      00000000 
+ 485      00
+ 486 03ca 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 486      00000000 
+ 486      00000000 
+ 486      00
+ 487 03d7 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 487      00000000 
+ 487      00000000 
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 19
+
+
+ 487      00
+ 488 03e4 00000000 		.ascii	"\000\000\000\000\000\000\000\000\001\003\007\007\017"
+ 488      00000000 
+ 488      01030707 
+ 488      0F
+ 489 03f1 0F0F0000 		.ascii	"\017\017\000\000\000\000\000\000\000\000\000\000\000"
+ 489      00000000 
+ 489      00000000 
+ 489      00
+ 490 03fe 0000     		.ascii	"\000\000"
+ 491              		.text
+ 492              	.Letext0:
+ 493              		.file 2 "f:\\work_project\\9 2019-q4-major\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 494              		.file 3 "f:\\work_project\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 495              		.file 4 "Drivers/CMSIS/Include/core_cm3.h"
+ 496              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
+ 497              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h"
+ 498              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 499              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h"
+ 500              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h"
+ 501              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 502              		.file 11 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h"
+ 503              		.file 12 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc.h"
+ 504              		.file 13 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
+ 505              		.file 14 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
+ 506              		.file 15 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 507              		.file 16 "Inc/i2c.h"
+ 508              		.file 17 "Inc/rtc.h"
+ 509              		.file 18 "Inc/tim.h"
+ 510              		.file 19 "Inc/usart.h"
+ 511              		.file 20 "f:\\work_project\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\lock.h"
+ 512              		.file 21 "f:\\work_project\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\_types.h"
+ 513              		.file 22 "f:\\work_project\\9 2019-q4-major\\lib\\gcc\\arm-none-eabi\\9.2.1\\include\\stddef.h"
+ 514              		.file 23 "f:\\work_project\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\reent.h"
+ 515              		.file 24 "f:\\work_project\\9 2019-q4-major\\arm-none-eabi\\include\\stdio.h"
+ 516              		.file 25 "f:\\work_project\\9 2019-q4-major\\arm-none-eabi\\include\\stdlib.h"
+ 517              		.file 26 "Inc/gpio.h"
+ 518              		.file 27 "Inc/oled.h"
+ 519              		.file 28 "Inc/display.h"
+ 520              		.file 29 "<built-in>"
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s 			page 20
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\25339\AppData\Local\Temp\ccowCdqA.s:16     .text.fputc:00000000 $t
-C:\Users\25339\AppData\Local\Temp\ccowCdqA.s:24     .text.fputc:00000000 fputc
-C:\Users\25339\AppData\Local\Temp\ccowCdqA.s:69     .text.fputc:0000001c $d
-C:\Users\25339\AppData\Local\Temp\ccowCdqA.s:74     .text.SystemClock_Config:00000000 $t
-C:\Users\25339\AppData\Local\Temp\ccowCdqA.s:81     .text.SystemClock_Config:00000000 SystemClock_Config
-C:\Users\25339\AppData\Local\Temp\ccowCdqA.s:196    .rodata.main.str1.4:00000000 $d
-C:\Users\25339\AppData\Local\Temp\ccowCdqA.s:211    .text.main:00000000 $t
-C:\Users\25339\AppData\Local\Temp\ccowCdqA.s:218    .text.main:00000000 main
-C:\Users\25339\AppData\Local\Temp\ccowCdqA.s:327    .text.main:00000094 $d
-C:\Users\25339\AppData\Local\Temp\ccowCdqA.s:337    .text.Error_Handler:00000000 $t
-C:\Users\25339\AppData\Local\Temp\ccowCdqA.s:344    .text.Error_Handler:00000000 Error_Handler
-                            *COM*:00000003 gettime
+C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s:16     .text.fputc:00000000 $t
+C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s:24     .text.fputc:00000000 fputc
+C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s:69     .text.fputc:0000001c $d
+C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s:74     .text.SystemClock_Config:00000000 $t
+C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s:81     .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s:196    .rodata.main.str1.4:00000000 $d
+C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s:214    .text.main:00000000 $t
+C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s:221    .text.main:00000000 main
+C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s:376    .text.main:000000d8 $d
                             *COM*:00000004 getdate
-C:\Users\25339\AppData\Local\Temp\ccowCdqA.s:359    .rodata:00000000 $d
+                            *COM*:00000003 gettime
+C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s:389    .text.Error_Handler:00000000 $t
+C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s:396    .text.Error_Handler:00000000 Error_Handler
+C:\Users\25339\AppData\Local\Temp\ccLVO1kv.s:411    .rodata:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_UART_Transmit
@@ -1086,4 +1160,7 @@ show_chs_string
 show_string_atype
 HAL_Delay
 show_drawBMP
+display_time
+get_time
+printf
 g_1s_flag

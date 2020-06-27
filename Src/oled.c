@@ -244,7 +244,7 @@ void show_char_a1type(uint8_t line, uint8_t column, char character)
 void show_string_atype(uint8_t line, uint8_t column, char *data, uint8_t len)
 {
     uint8_t i = 0;
-
+    column *= 8;
     for (i = 0; i < len; i++)
     {
         show_char_a1type(line, column, *data);

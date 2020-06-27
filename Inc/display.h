@@ -3,4 +3,5 @@
 
 #include "oled.h"
 
+extern void display_time(void);
 #endif /*__DISPLAY_H*/

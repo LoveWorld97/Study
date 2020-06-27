@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
   29:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c **** /** @addtogroup STM32F1xx_HAL_Driver
   30:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   * @{
   31:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   */
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 2
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 2
 
 
   32:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
   83:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   /* Check input parameters */
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 3
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 3
 
 
   84:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   if ((hrtc == NULL) || (sTamper == NULL))
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  104:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c **** 
  105:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****     return HAL_ERROR;
  106:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   }
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 4
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 4
 
 
  107:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  105              		.loc 1 103 5 view .LVU30
  105:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   }
  106              		.loc 1 105 5 view .LVU31
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 5
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 5
 
 
  105:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   }
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  122:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   *                the configuration information for RTC.
  123:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   * @param  sTamper: Pointer to RTC Tamper.
  124:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   * @note   Tamper can be enabled only if ASOE and CCO bit are reset
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 6
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 6
 
 
  125:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   * @retval HAL status
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  184              		.loc 1 128 1 view .LVU55
  185 001e 10B4     		push	{r4}
  186              	.LCFI2:
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 7
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 7
 
 
  187              		.cfi_def_cfa_offset 4
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  220              		.cfi_def_cfa_offset 0
  221 0044 7047     		bx	lr
  222              	.LVL14:
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 8
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 8
 
 
  223              	.L22:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  264              		.cfi_endproc
  265              	.LFE66:
  267              		.section	.text.HAL_RTCEx_DeactivateTamper,"ax",%progbits
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 9
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 9
 
 
  268              		.align	1
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  189:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c **** 
  190:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
  300              		.loc 1 190 3 discriminator 2 view .LVU91
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 10
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 10
 
 
  301              		.loc 1 190 15 is_stmt 0 discriminator 2 view .LVU92
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  336              		.loc 1 180 12 view .LVU105
  337 003a 0120     		movs	r0, #1
  338              	.LVL26:
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 11
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 11
 
 
  180:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   }
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  236:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c **** 
  237:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   /* Change RTC state */
  238:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_READY;
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 12
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 12
 
 
  239:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c **** }
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  402 0006 5B6B     		ldr	r3, [r3, #52]
  220:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   {
  403              		.loc 1 220 6 view .LVU116
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 13
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 13
 
 
  404 0008 13F0040F 		tst	r3, #4
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  257:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   * @brief  This function handles Tamper1 Polling.
  258:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   * @param  hrtc: pointer to a RTC_HandleTypeDef structure that contains
  259:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   *                the configuration information for RTC.
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 14
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 14
 
 
  260:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   * @param  Timeout: Timeout duration
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  277:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****     {
  278:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****       if ((Timeout == 0U) || ((HAL_GetTick() - tickstart) > Timeout))
  487              		.loc 1 278 7 is_stmt 1 view .LVU137
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 15
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 15
 
 
  488              		.loc 1 278 10 is_stmt 0 view .LVU138
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  526              	.LVL40:
  270:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   }
  527              		.loc 1 270 12 view .LVU153
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 16
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 16
 
 
  528 0044 FCE7     		b	.L39
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  555 0002 70B1     		cbz	r0, .L52
  323:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   {
  324:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****     return HAL_ERROR;
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 17
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 17
 
 
  325:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   }
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  592              		.loc 1 324 12 view .LVU173
  593 0024 7047     		bx	lr
  594              	.LVL45:
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 18
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 18
 
 
  595              	.L53:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  632              		.loc 1 358 3 discriminator 2 view .LVU182
  359:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c **** 
  360:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 19
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 19
 
 
  633              		.loc 1 360 3 discriminator 2 view .LVU183
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  674              		.weak	HAL_RTCEx_RTCEventCallback
  675              		.syntax unified
  676              		.thumb
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 20
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 20
 
 
  677              		.thumb_func
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  683              		.loc 1 420 1 is_stmt 1 view -0
  684              		.cfi_startproc
  685              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 21
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 21
 
 
  686              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  722              		.fpu softvfp
  724              	HAL_RTCEx_RTCIRQHandler:
  725              	.LVL55:
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 22
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 22
 
 
  726              	.LFB73:
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  765              		.loc 1 396 21 is_stmt 0 view .LVU218
  766 002a 0423     		movs	r3, #4
  767 002c 6374     		strb	r3, [r4, #17]
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 23
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 23
 
 
  768              	.L63:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  452:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****               ##### Extension Peripheral Control functions #####
  453:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****  ===============================================================================
  454:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****     [..]
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 24
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 24
 
 
  455:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****     This subsection provides functions allowing to
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  829              		.loc 1 487 26 view .LVU235
  830 000c 0A60     		str	r2, [r1]
  488:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c **** }
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 25
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 25
 
 
  831              		.loc 1 488 1 view .LVU236
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  864              	.LVL66:
  512:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c **** 
  513:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   pvalue = (*(__IO uint32_t *)(backupregister)) & BKP_DR1_D;
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 26
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 26
 
 
  865              		.loc 1 513 3 is_stmt 1 view .LVU246
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  536:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   /* Prevent unused argument(s) compilation warning */
  537:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   UNUSED(SmoothCalibPeriod);
  899              		.loc 1 537 3 is_stmt 1 view .LVU254
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 27
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 27
 
 
  538:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c ****   UNUSED(SmoothCalibPlusPulses);
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  935              		.loc 1 555 3 is_stmt 1 discriminator 2 view .LVU270
  936              		.loc 1 555 3 discriminator 2 view .LVU271
  937 0022 0020     		movs	r0, #0
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 28
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 28
 
 
  938 0024 1074     		strb	r0, [r2, #16]
@@ -1668,45 +1668,45 @@ ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 1
  977              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc.h"
  978              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc_ex.h"
  979              		.file 11 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
-ARM GAS  C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s 			page 29
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc71skRv.s 			page 29
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f1xx_hal_rtc_ex.c
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:16     .text.HAL_RTCEx_SetTamper:00000000 $t
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:24     .text.HAL_RTCEx_SetTamper:00000000 HAL_RTCEx_SetTamper
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:136    .text.HAL_RTCEx_SetTamper:00000058 $d
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:141    .text.HAL_RTCEx_SetTamper_IT:00000000 $t
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:148    .text.HAL_RTCEx_SetTamper_IT:00000000 HAL_RTCEx_SetTamper_IT
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:263    .text.HAL_RTCEx_SetTamper_IT:00000060 $d
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:268    .text.HAL_RTCEx_DeactivateTamper:00000000 $t
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:275    .text.HAL_RTCEx_DeactivateTamper:00000000 HAL_RTCEx_DeactivateTamper
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:351    .text.HAL_RTCEx_DeactivateTamper:00000044 $d
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:356    .text.HAL_RTCEx_Tamper1EventCallback:00000000 $t
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:363    .text.HAL_RTCEx_Tamper1EventCallback:00000000 HAL_RTCEx_Tamper1EventCallback
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:378    .text.HAL_RTCEx_TamperIRQHandler:00000000 $t
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:385    .text.HAL_RTCEx_TamperIRQHandler:00000000 HAL_RTCEx_TamperIRQHandler
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:435    .text.HAL_RTCEx_TamperIRQHandler:00000030 $d
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:440    .text.HAL_RTCEx_PollForTamper1Event:00000000 $t
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:447    .text.HAL_RTCEx_PollForTamper1Event:00000000 HAL_RTCEx_PollForTamper1Event
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:532    .text.HAL_RTCEx_PollForTamper1Event:00000048 $d
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:537    .text.HAL_RTCEx_SetSecond_IT:00000000 $t
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:544    .text.HAL_RTCEx_SetSecond_IT:00000000 HAL_RTCEx_SetSecond_IT
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:605    .text.HAL_RTCEx_DeactivateSecond:00000000 $t
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:612    .text.HAL_RTCEx_DeactivateSecond:00000000 HAL_RTCEx_DeactivateSecond
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:673    .text.HAL_RTCEx_RTCEventCallback:00000000 $t
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:680    .text.HAL_RTCEx_RTCEventCallback:00000000 HAL_RTCEx_RTCEventCallback
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:695    .text.HAL_RTCEx_RTCEventErrorCallback:00000000 $t
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:702    .text.HAL_RTCEx_RTCEventErrorCallback:00000000 HAL_RTCEx_RTCEventErrorCallback
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:717    .text.HAL_RTCEx_RTCIRQHandler:00000000 $t
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:724    .text.HAL_RTCEx_RTCIRQHandler:00000000 HAL_RTCEx_RTCIRQHandler
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:798    .text.HAL_RTCEx_BKUPWrite:00000000 $t
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:805    .text.HAL_RTCEx_BKUPWrite:00000000 HAL_RTCEx_BKUPWrite
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:837    .text.HAL_RTCEx_BKUPRead:00000000 $t
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:844    .text.HAL_RTCEx_BKUPRead:00000000 HAL_RTCEx_BKUPRead
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:879    .text.HAL_RTCEx_SetSmoothCalib:00000000 $t
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:886    .text.HAL_RTCEx_SetSmoothCalib:00000000 HAL_RTCEx_SetSmoothCalib
-C:\Users\25339\AppData\Local\Temp\ccL1uGtG.s:964    .text.HAL_RTCEx_SetSmoothCalib:00000034 $d
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:16     .text.HAL_RTCEx_SetTamper:00000000 $t
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:24     .text.HAL_RTCEx_SetTamper:00000000 HAL_RTCEx_SetTamper
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:136    .text.HAL_RTCEx_SetTamper:00000058 $d
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:141    .text.HAL_RTCEx_SetTamper_IT:00000000 $t
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:148    .text.HAL_RTCEx_SetTamper_IT:00000000 HAL_RTCEx_SetTamper_IT
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:263    .text.HAL_RTCEx_SetTamper_IT:00000060 $d
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:268    .text.HAL_RTCEx_DeactivateTamper:00000000 $t
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:275    .text.HAL_RTCEx_DeactivateTamper:00000000 HAL_RTCEx_DeactivateTamper
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:351    .text.HAL_RTCEx_DeactivateTamper:00000044 $d
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:356    .text.HAL_RTCEx_Tamper1EventCallback:00000000 $t
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:363    .text.HAL_RTCEx_Tamper1EventCallback:00000000 HAL_RTCEx_Tamper1EventCallback
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:378    .text.HAL_RTCEx_TamperIRQHandler:00000000 $t
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:385    .text.HAL_RTCEx_TamperIRQHandler:00000000 HAL_RTCEx_TamperIRQHandler
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:435    .text.HAL_RTCEx_TamperIRQHandler:00000030 $d
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:440    .text.HAL_RTCEx_PollForTamper1Event:00000000 $t
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:447    .text.HAL_RTCEx_PollForTamper1Event:00000000 HAL_RTCEx_PollForTamper1Event
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:532    .text.HAL_RTCEx_PollForTamper1Event:00000048 $d
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:537    .text.HAL_RTCEx_SetSecond_IT:00000000 $t
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:544    .text.HAL_RTCEx_SetSecond_IT:00000000 HAL_RTCEx_SetSecond_IT
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:605    .text.HAL_RTCEx_DeactivateSecond:00000000 $t
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:612    .text.HAL_RTCEx_DeactivateSecond:00000000 HAL_RTCEx_DeactivateSecond
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:673    .text.HAL_RTCEx_RTCEventCallback:00000000 $t
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:680    .text.HAL_RTCEx_RTCEventCallback:00000000 HAL_RTCEx_RTCEventCallback
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:695    .text.HAL_RTCEx_RTCEventErrorCallback:00000000 $t
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:702    .text.HAL_RTCEx_RTCEventErrorCallback:00000000 HAL_RTCEx_RTCEventErrorCallback
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:717    .text.HAL_RTCEx_RTCIRQHandler:00000000 $t
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:724    .text.HAL_RTCEx_RTCIRQHandler:00000000 HAL_RTCEx_RTCIRQHandler
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:798    .text.HAL_RTCEx_BKUPWrite:00000000 $t
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:805    .text.HAL_RTCEx_BKUPWrite:00000000 HAL_RTCEx_BKUPWrite
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:837    .text.HAL_RTCEx_BKUPRead:00000000 $t
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:844    .text.HAL_RTCEx_BKUPRead:00000000 HAL_RTCEx_BKUPRead
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:879    .text.HAL_RTCEx_SetSmoothCalib:00000000 $t
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:886    .text.HAL_RTCEx_SetSmoothCalib:00000000 HAL_RTCEx_SetSmoothCalib
+C:\Users\25339\AppData\Local\Temp\cc71skRv.s:964    .text.HAL_RTCEx_SetSmoothCalib:00000034 $d
 
 UNDEFINED SYMBOLS
 HAL_GetTick
