@@ -1,0 +1,267 @@
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc25d2kU.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"display.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.rodata.display_time.str1.4,"aMS",%progbits,1
+  16              		.align	2
+  17              	.LC0:
+  18 0000 2E00     		.ascii	".\000"
+  19              		.section	.text.display_time,"ax",%progbits
+  20              		.align	1
+  21              		.global	display_time
+  22              		.arch armv7-m
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  26              		.fpu softvfp
+  28              	display_time:
+  29              	.LFB65:
+  30              		.file 1 "Src/display.c"
+   1:Src/display.c **** #include "display.h"
+   2:Src/display.c **** #include "rtc.h"
+   3:Src/display.c **** 
+   4:Src/display.c **** unsigned char display_array[256] = {0};
+   5:Src/display.c **** void display_time(void)
+   6:Src/display.c **** {
+  31              		.loc 1 6 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 24
+  38              		.cfi_offset 3, -24
+  39              		.cfi_offset 4, -20
+  40              		.cfi_offset 5, -16
+  41              		.cfi_offset 6, -12
+  42              		.cfi_offset 7, -8
+  43              		.cfi_offset 14, -4
+   7:Src/display.c ****     /*显示日期*/
+   8:Src/display.c ****     display_array[0] = getdate.Year / 1000 + 0x30;
+  44              		.loc 1 8 5 view .LVU1
+  45              		.loc 1 8 31 is_stmt 0 view .LVU2
+  46 0002 374E     		ldr	r6, .L3
+  47 0004 F178     		ldrb	r1, [r6, #3]	@ zero_extendqisi2
+  48              		.loc 1 8 22 view .LVU3
+  49 0006 374D     		ldr	r5, .L3+4
+  50 0008 3023     		movs	r3, #48
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc25d2kU.s 			page 2
+
+
+  51 000a 2B70     		strb	r3, [r5]
+   9:Src/display.c ****     display_array[1] = getdate.Year / 100 % 10 + 0x30;
+  52              		.loc 1 9 5 is_stmt 1 view .LVU4
+  53              		.loc 1 9 48 is_stmt 0 view .LVU5
+  54 000c 364B     		ldr	r3, .L3+8
+  55 000e A3FB0102 		umull	r0, r2, r3, r1
+  56 0012 C2F34712 		ubfx	r2, r2, #5, #8
+  57 0016 354C     		ldr	r4, .L3+12
+  58 0018 A4FB0270 		umull	r7, r0, r4, r2
+  59 001c C008     		lsrs	r0, r0, #3
+  60 001e 00EB8000 		add	r0, r0, r0, lsl #2
+  61 0022 4700     		lsls	r7, r0, #1
+  62 0024 D21B     		subs	r2, r2, r7
+  63 0026 3032     		adds	r2, r2, #48
+  64              		.loc 1 9 22 view .LVU6
+  65 0028 6A70     		strb	r2, [r5, #1]
+  10:Src/display.c ****     display_array[2] = getdate.Year / 10 % 100 + 0x30;
+  66              		.loc 1 10 5 is_stmt 1 view .LVU7
+  67              		.loc 1 10 48 is_stmt 0 view .LVU8
+  68 002a A4FB0120 		umull	r2, r0, r4, r1
+  69 002e C208     		lsrs	r2, r0, #3
+  70 0030 C0F3C700 		ubfx	r0, r0, #3, #8
+  71 0034 A3FB0073 		umull	r7, r3, r3, r0
+  72 0038 5B09     		lsrs	r3, r3, #5
+  73 003a 6427     		movs	r7, #100
+  74 003c 07FB1303 		mls	r3, r7, r3, r0
+  75 0040 3033     		adds	r3, r3, #48
+  76              		.loc 1 10 22 view .LVU9
+  77 0042 AB70     		strb	r3, [r5, #2]
+  11:Src/display.c ****     display_array[3] = getdate.Year % 10 + 0x30;
+  78              		.loc 1 11 5 is_stmt 1 view .LVU10
+  79              		.loc 1 11 42 is_stmt 0 view .LVU11
+  80 0044 02EB8203 		add	r3, r2, r2, lsl #2
+  81 0048 5A00     		lsls	r2, r3, #1
+  82 004a 891A     		subs	r1, r1, r2
+  83 004c 3031     		adds	r1, r1, #48
+  84              		.loc 1 11 22 view .LVU12
+  85 004e E970     		strb	r1, [r5, #3]
+  12:Src/display.c ****     show_string_atype(0, 0, display_array, 4);
+  86              		.loc 1 12 5 is_stmt 1 view .LVU13
+  87 0050 0423     		movs	r3, #4
+  88 0052 2A46     		mov	r2, r5
+  89 0054 0021     		movs	r1, #0
+  90 0056 0846     		mov	r0, r1
+  91 0058 FFF7FEFF 		bl	show_string_atype
+  92              	.LVL0:
+  13:Src/display.c ****     show_string_atype(0, 4, ".", 1);
+  93              		.loc 1 13 5 view .LVU14
+  94 005c 244F     		ldr	r7, .L3+16
+  95 005e 0123     		movs	r3, #1
+  96 0060 3A46     		mov	r2, r7
+  97 0062 0421     		movs	r1, #4
+  98 0064 0020     		movs	r0, #0
+  99 0066 FFF7FEFF 		bl	show_string_atype
+ 100              	.LVL1:
+  14:Src/display.c ****     display_array[0] = getdate.Month / 10 + 0x30;
+ 101              		.loc 1 14 5 view .LVU15
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc25d2kU.s 			page 3
+
+
+ 102              		.loc 1 14 31 is_stmt 0 view .LVU16
+ 103 006a 7278     		ldrb	r2, [r6, #1]	@ zero_extendqisi2
+ 104              		.loc 1 14 43 view .LVU17
+ 105 006c A4FB0213 		umull	r1, r3, r4, r2
+ 106 0070 DB08     		lsrs	r3, r3, #3
+ 107 0072 03F13001 		add	r1, r3, #48
+ 108              		.loc 1 14 22 view .LVU18
+ 109 0076 2970     		strb	r1, [r5]
+  15:Src/display.c ****     display_array[1] = getdate.Month % 10 + 0x30;
+ 110              		.loc 1 15 5 is_stmt 1 view .LVU19
+ 111              		.loc 1 15 43 is_stmt 0 view .LVU20
+ 112 0078 03EB8303 		add	r3, r3, r3, lsl #2
+ 113 007c 5900     		lsls	r1, r3, #1
+ 114 007e 521A     		subs	r2, r2, r1
+ 115 0080 3032     		adds	r2, r2, #48
+ 116              		.loc 1 15 22 view .LVU21
+ 117 0082 6A70     		strb	r2, [r5, #1]
+  16:Src/display.c ****     show_string_atype(0, 5, display_array, 4);
+ 118              		.loc 1 16 5 is_stmt 1 view .LVU22
+ 119 0084 0423     		movs	r3, #4
+ 120 0086 2A46     		mov	r2, r5
+ 121 0088 0521     		movs	r1, #5
+ 122 008a 0020     		movs	r0, #0
+ 123 008c FFF7FEFF 		bl	show_string_atype
+ 124              	.LVL2:
+  17:Src/display.c ****     show_string_atype(0, 7, ".", 1);
+ 125              		.loc 1 17 5 view .LVU23
+ 126 0090 0123     		movs	r3, #1
+ 127 0092 3A46     		mov	r2, r7
+ 128 0094 0721     		movs	r1, #7
+ 129 0096 0020     		movs	r0, #0
+ 130 0098 FFF7FEFF 		bl	show_string_atype
+ 131              	.LVL3:
+  18:Src/display.c ****     display_array[0] = getdate.Date / 10 + 0x30;
+ 132              		.loc 1 18 5 view .LVU24
+ 133              		.loc 1 18 31 is_stmt 0 view .LVU25
+ 134 009c B278     		ldrb	r2, [r6, #2]	@ zero_extendqisi2
+ 135              		.loc 1 18 42 view .LVU26
+ 136 009e A4FB0213 		umull	r1, r3, r4, r2
+ 137 00a2 DB08     		lsrs	r3, r3, #3
+ 138 00a4 03F13001 		add	r1, r3, #48
+ 139              		.loc 1 18 22 view .LVU27
+ 140 00a8 2970     		strb	r1, [r5]
+  19:Src/display.c ****     display_array[1] = getdate.Date % 10 + 0x30;
+ 141              		.loc 1 19 5 is_stmt 1 view .LVU28
+ 142              		.loc 1 19 42 is_stmt 0 view .LVU29
+ 143 00aa 03EB8303 		add	r3, r3, r3, lsl #2
+ 144 00ae 5900     		lsls	r1, r3, #1
+ 145 00b0 521A     		subs	r2, r2, r1
+ 146 00b2 3032     		adds	r2, r2, #48
+ 147              		.loc 1 19 22 view .LVU30
+ 148 00b4 6A70     		strb	r2, [r5, #1]
+  20:Src/display.c ****     show_string_atype(0, 8, display_array, 4);
+ 149              		.loc 1 20 5 is_stmt 1 view .LVU31
+ 150 00b6 0423     		movs	r3, #4
+ 151 00b8 2A46     		mov	r2, r5
+ 152 00ba 0821     		movs	r1, #8
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc25d2kU.s 			page 4
+
+
+ 153 00bc 0020     		movs	r0, #0
+ 154 00be FFF7FEFF 		bl	show_string_atype
+ 155              	.LVL4:
+  21:Src/display.c ****     /*显示时间*/
+  22:Src/display.c ****     display_array[0] = gettime.Hours / 10 + 0x30;
+ 156              		.loc 1 22 5 view .LVU32
+ 157              		.loc 1 22 31 is_stmt 0 view .LVU33
+ 158 00c2 0C4B     		ldr	r3, .L3+20
+ 159 00c4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 160              		.loc 1 22 43 view .LVU34
+ 161 00c6 A4FB0324 		umull	r2, r4, r4, r3
+ 162 00ca E408     		lsrs	r4, r4, #3
+ 163 00cc 04F13002 		add	r2, r4, #48
+ 164              		.loc 1 22 22 view .LVU35
+ 165 00d0 2A70     		strb	r2, [r5]
+  23:Src/display.c ****     display_array[1] = gettime.Hours % 10 + 0x30;
+ 166              		.loc 1 23 5 is_stmt 1 view .LVU36
+ 167              		.loc 1 23 43 is_stmt 0 view .LVU37
+ 168 00d2 04EB8404 		add	r4, r4, r4, lsl #2
+ 169 00d6 6200     		lsls	r2, r4, #1
+ 170 00d8 9B1A     		subs	r3, r3, r2
+ 171 00da 3033     		adds	r3, r3, #48
+ 172              		.loc 1 23 22 view .LVU38
+ 173 00dc 6B70     		strb	r3, [r5, #1]
+  24:Src/display.c **** }...
+ 174              		.loc 1 24 1 view .LVU39
+ 175 00de F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 176              	.L4:
+ 177              		.align	2
+ 178              	.L3:
+ 179 00e0 00000000 		.word	getdate
+ 180 00e4 00000000 		.word	.LANCHOR0
+ 181 00e8 1F85EB51 		.word	1374389535
+ 182 00ec CDCCCCCC 		.word	-858993459
+ 183 00f0 00000000 		.word	.LC0
+ 184 00f4 00000000 		.word	gettime
+ 185              		.cfi_endproc
+ 186              	.LFE65:
+ 188              		.global	display_array
+ 189              		.comm	gettime,3,4
+ 190              		.comm	getdate,4,4
+ 191              		.section	.bss.display_array,"aw",%nobits
+ 192              		.align	2
+ 193              		.set	.LANCHOR0,. + 0
+ 196              	display_array:
+ 197 0000 00000000 		.space	256
+ 197      00000000 
+ 197      00000000 
+ 197      00000000 
+ 197      00000000 
+ 198              		.text
+ 199              	.Letext0:
+ 200              		.file 2 "f:\\work_project\\9 2019-q4-major\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 201              		.file 3 "f:\\work_project\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 202              		.file 4 "Drivers/CMSIS/Include/core_cm3.h"
+ 203              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
+ 204              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h"
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc25d2kU.s 			page 5
+
+
+ 205              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 206              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 207              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h"
+ 208              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc.h"
+ 209              		.file 11 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 210              		.file 12 "Inc/i2c.h"
+ 211              		.file 13 "Inc/rtc.h"
+ 212              		.file 14 "Inc/oled.h"
+ARM GAS  C:\Users\25339\AppData\Local\Temp\cc25d2kU.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 display.c
+C:\Users\25339\AppData\Local\Temp\cc25d2kU.s:16     .rodata.display_time.str1.4:00000000 $d
+C:\Users\25339\AppData\Local\Temp\cc25d2kU.s:20     .text.display_time:00000000 $t
+C:\Users\25339\AppData\Local\Temp\cc25d2kU.s:28     .text.display_time:00000000 display_time
+C:\Users\25339\AppData\Local\Temp\cc25d2kU.s:179    .text.display_time:000000e0 $d
+                            *COM*:00000004 getdate
+                            *COM*:00000003 gettime
+C:\Users\25339\AppData\Local\Temp\cc25d2kU.s:196    .bss.display_array:00000000 display_array
+C:\Users\25339\AppData\Local\Temp\cc25d2kU.s:192    .bss.display_array:00000000 $d
+
+UNDEFINED SYMBOLS
+show_string_atype

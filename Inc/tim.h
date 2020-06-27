@@ -33,7 +33,7 @@
 extern TIM_HandleTypeDef htim6;
 
 /* USER CODE BEGIN Private defines */
-extern uint8_t g_1s_flag = 0;
+extern uint8_t g_1s_flag;
 /* USER CODE END Private defines */
 
 void MX_TIM6_Init(void);
