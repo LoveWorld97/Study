@@ -32,16 +32,16 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "display.h"
+#include "uart1.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-/*printf()鍑芥暟閲嶅啓*/
+/*printf()重定义*/
 int fputc(int ch, FILE *f)
 {
-    uint8_t temp[1] = {ch};
-    HAL_UART_Transmit(&huart1, temp, 1, 2);
-    return ch;
+    HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 1000);
+    return (ch);
 }
 
 /* USER CODE END PTD */
@@ -173,6 +173,9 @@ int main(void)
     OLED_Init();
     OLED_CLS();
 
+    /*2.中断接收使能函数*/
+    HAL_UART_Receive_IT(&huart1,uart1_rxbuffer,10);
+    /*1s定时标志位*/
     g_1s_flag = 1;
     /* USER CODE END 2 */
 
@@ -187,7 +190,6 @@ int main(void)
         {
             g_1s_flag = 0;
             get_time(&gettime, &getdate);
-            //蹇呴』HAL_RTC_GetTime鍦ㄥ墠HAL_RTC_GetDate鍦ㄥ悗,鍚﹀垯鑾峰彇鏃堕棿涓嶅強鏃?
             /*display time format:hh/mm/ss*/
             printf("%02d/%02d/%02d\r\n", gettime.Hours, gettime.Minutes, gettime.Seconds);
             /*display date format:yy/mm/dd*/
