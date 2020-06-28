@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=F:/Study/oled+rtc/Inc
+HeaderPath=F:/Study/stm32f103_iic_oled/Inc
 HeaderFiles=gpio.h;i2c.h;sys.h;stm32f1xx_it.h;stm32f1xx_hal_conf.h;main.h;rtc.h;usart.h;tim.h;
-SourcePath=F:/Study/oled+rtc/Src
+SourcePath=F:/Study/stm32f103_iic_oled/Src
 SourceFiles=gpio.c;i2c.c;sys.c;stm32f1xx_it.c;stm32f1xx_hal_msp.c;main.c;rtc.c;usart.c;tim.c;
 
 [PreviousLibFiles]

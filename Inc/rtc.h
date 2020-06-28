@@ -39,12 +39,12 @@ extern RTC_HandleTypeDef hrtc;
 void MX_RTC_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-    /*获取日期结构�?*/
+    /*鑾峰彇鏃ユ湡缁撴瀯浣?*/
     RTC_DateTypeDef getdate;
-    /*获取时间结构�?*/
+    /*鑾峰彇鏃堕棿缁撴瀯浣?*/
     RTC_TimeTypeDef gettime;
-    
-    extern void get_time(RTC_DateTypeDef *RTC_Time, RTC_TimeTypeDef *RTC_Date);
+
+    extern void get_time(RTC_TimeTypeDef *RTC_Time, RTC_DateTypeDef *RTC_Date);
     extern void set_time(uint8_t hours, uint8_t minutes, uint8_t seconds);
     extern void set_date(uint8_t year, uint8_t month, uint8_t date);
 /* USER CODE END Prototypes */

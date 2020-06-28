@@ -33,7 +33,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
- 
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -224,8 +224,8 @@ void USART1_IRQHandler(void)
   /* USER CODE END USART1_IRQn 0 */
   HAL_UART_IRQHandler(&huart1);
   /* USER CODE BEGIN USART1_IRQn 1 */
-  /*4.在中断函数中，添加中断接收使能函数*/
-HAL_UART_Receive_IT(&huart1,uart1_rxbuffer,10);
+    /*4.在中断函数中，添加中断接收使能函�?*/
+    HAL_UART_Receive_IT(&huart1, uart1_rxbuffer, 20);
   /* USER CODE END USART1_IRQn 1 */
 }
 
@@ -247,12 +247,12 @@ void TIM6_IRQHandler(void)
 /*3.重写中断回调函数*/
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-  /* Prevent unused argument(s) compilation warning */
-  UNUSED(huart);
-  /* NOTE: This function should not be modified, when the callback is needed,
+    /* Prevent unused argument(s) compilation warning */
+    UNUSED(huart);
+    /* NOTE: This function should not be modified, when the callback is needed,
            the HAL_UART_RxCpltCallback could be implemented in the user file
    */
-
 }
+
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
