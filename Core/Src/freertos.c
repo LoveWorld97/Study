@@ -123,7 +123,6 @@ void MX_FREERTOS_Init(void)
     /* definition and creation of myTimer01 */
     osTimerDef(myTimer01, Callback01);
     myTimer01Handle = osTimerCreate(osTimer(myTimer01), osTimerPeriodic, NULL);
-
     /* USER CODE BEGIN RTOS_TIMERS */
     /* start timers, add new ones, ... */
     /*启动定时器定时1s进入回调函数Callback01*/
@@ -140,12 +139,12 @@ void MX_FREERTOS_Init(void)
     defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
     /* definition and creation of flash_time_task */
-    osThreadDef(flash_time_task, start_flash_time_task, osPriorityNormal, 0, 128);
+    osThreadDef(flash_time_task, start_flash_time_task, osPriorityAboveNormal, 0, 128);
     flash_time_taskHandle = osThreadCreate(osThread(flash_time_task), NULL);
 
     /* USER CODE BEGIN RTOS_THREADS */
     /* add threads, ... */
-    osThreadDef(led_task, start_led_task, osPriorityNormal, 0, 128);
+    osThreadDef(led_task, start_led_task, osPriorityAboveNormal, 0, 128);
     led_taskHandle = osThreadCreate(osThread(led_task), NULL);
     /* USER CODE END RTOS_THREADS */
 }
@@ -163,8 +162,6 @@ void StartDefaultTask(void const *argument)
     /* Infinite loop */
     for (;;)
     {
-        show_chs_string(4, 0, "苏培佩我爱你！");
-        show_string_atype(6, 0, "love you forever", 16);
     }
     /* USER CODE END StartDefaultTask */
 }
@@ -186,6 +183,8 @@ void start_flash_time_task(void const *argument)
         display_date(0, 5);
         show_string_atype(2, 0, "time:", 5);
         display_time(2, 5);
+        show_chs_string(4, 0, "苏培佩我爱你！");
+        show_string_atype(6, 0, "love you forever", 16);
     }
     /* USER CODE END start_flash_time_task */
 }
@@ -195,6 +194,7 @@ void Callback01(void const *argument)
 {
     /* USER CODE BEGIN Callback01 */
     get_time(&gettime, &getdate);
+    g_flag_time++;
     /* USER CODE END Callback01 */
 }
 
@@ -204,20 +204,25 @@ void start_led_task(void const *argument)
 {
     for (;;)
     {
-        green_led_on;
-        osDelay(500);
-        green_led_off;
-        osDelay(500);
-
-        blue_led_on;
-        osDelay(500);
-        blue_led_off;
-        osDelay(500);
-
-        red_led_on;
-        osDelay(500);
-        red_led_off;
-        osDelay(500);
+        if (g_flag_time == 1)
+        {
+            red_led_off;
+            green_led_on;
+        }
+        else if (g_flag_time == 2)
+        {
+            green_led_off;
+            blue_led_on;
+        }
+        else if (g_flag_time == 3)
+        {
+            blue_led_off;
+            red_led_on;
+            g_flag_time = 0;
+        }
+        else
+        {
+        }
     }
 }
 /* USER CODE END Application */

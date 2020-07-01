@@ -21,7 +21,7 @@
 #include "rtc.h"
 
 /* USER CODE BEGIN 0 */
-
+    uint8_t g_flag_time = 0;
 /* USER CODE END 0 */
 
 RTC_HandleTypeDef hrtc;

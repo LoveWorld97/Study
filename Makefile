@@ -42,6 +42,9 @@ Core/Src/freertos.c \
 Core/Src/i2c.c \
 Core/Src/rtc.c \
 Core/Src/sys.c \
+Core/Src/display.c \
+Core/Src/oled.c \
+Core/Src/uart1.c \
 Core/Src/stm32f1xx_hal_timebase_tim.c \
 Core/Src/tim.c \
 Core/Src/usart.c \

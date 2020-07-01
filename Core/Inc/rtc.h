@@ -33,7 +33,7 @@
 extern RTC_HandleTypeDef hrtc;
 
 /* USER CODE BEGIN Private defines */
-
+extern uint8_t g_flag_time;
 /* USER CODE END Private defines */
 
 void MX_RTC_Init(void);

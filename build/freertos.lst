@@ -1,0 +1,930 @@
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"freertos.c"
+  12              		.section	.rodata.str1.4,"aMS",%progbits,1
+  13              		.align	2
+  14              	.LC0:
+  15 0000 64656661 		.ascii	"defaultTask\000"
+  15      756C7454 
+  15      61736B00 
+  16              		.align	2
+  17              	.LC2:
+  18 000c 666C6173 		.ascii	"flash_time_task\000"
+  18      685F7469 
+  18      6D655F74 
+  18      61736B00 
+  19              		.align	2
+  20              	.LC4:
+  21 001c 6C65645F 		.ascii	"led_task\000"
+  21      7461736B 
+  21      00
+  22              		.text
+  23              	.Ltext0:
+  24              		.cfi_sections	.debug_frame
+  25              		.section	.text.StartDefaultTask,"ax",%progbits
+  26              		.align	1
+  27              		.global	StartDefaultTask
+  28              		.arch armv7-m
+  29              		.syntax unified
+  30              		.thumb
+  31              		.thumb_func
+  32              		.fpu softvfp
+  34              	StartDefaultTask:
+  35              	.LFB73:
+  36              		.file 1 "Core/Src/freertos.c"
+   1:Core/Src/freertos.c **** /* USER CODE BEGIN Header */
+   2:Core/Src/freertos.c **** /**
+   3:Core/Src/freertos.c ****   ******************************************************************************
+   4:Core/Src/freertos.c ****   * File Name          : freertos.c
+   5:Core/Src/freertos.c ****   * Description        : Code for freertos applications
+   6:Core/Src/freertos.c ****   ******************************************************************************
+   7:Core/Src/freertos.c ****   * @attention
+   8:Core/Src/freertos.c ****   *
+   9:Core/Src/freertos.c ****   * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
+  10:Core/Src/freertos.c ****   * All rights reserved.</center></h2>
+  11:Core/Src/freertos.c ****   *
+  12:Core/Src/freertos.c ****   * This software component is licensed by ST under Ultimate Liberty license
+  13:Core/Src/freertos.c ****   * SLA0044, the "License"; You may not use this file except in compliance with
+  14:Core/Src/freertos.c ****   * the License. You may obtain a copy of the License at:
+  15:Core/Src/freertos.c ****   *                             www.st.com/SLA0044
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s 			page 2
+
+
+  16:Core/Src/freertos.c ****   *
+  17:Core/Src/freertos.c ****   ******************************************************************************
+  18:Core/Src/freertos.c ****   */
+  19:Core/Src/freertos.c **** /* USER CODE END Header */
+  20:Core/Src/freertos.c **** 
+  21:Core/Src/freertos.c **** /* Includes ------------------------------------------------------------------*/
+  22:Core/Src/freertos.c **** #include "FreeRTOS.h"
+  23:Core/Src/freertos.c **** #include "task.h"
+  24:Core/Src/freertos.c **** #include "main.h"
+  25:Core/Src/freertos.c **** #include "cmsis_os.h"
+  26:Core/Src/freertos.c **** 
+  27:Core/Src/freertos.c **** /* Private includes ----------------------------------------------------------*/
+  28:Core/Src/freertos.c **** /* USER CODE BEGIN Includes */
+  29:Core/Src/freertos.c **** #include "oled.h"
+  30:Core/Src/freertos.c **** #include "display.h"
+  31:Core/Src/freertos.c **** #include "gpio.h"
+  32:Core/Src/freertos.c **** #include "rtc.h"
+  33:Core/Src/freertos.c **** /* USER CODE END Includes */
+  34:Core/Src/freertos.c **** 
+  35:Core/Src/freertos.c **** /* Private typedef -----------------------------------------------------------*/
+  36:Core/Src/freertos.c **** /* USER CODE BEGIN PTD */
+  37:Core/Src/freertos.c **** 
+  38:Core/Src/freertos.c **** /* USER CODE END PTD */
+  39:Core/Src/freertos.c **** 
+  40:Core/Src/freertos.c **** /* Private define ------------------------------------------------------------*/
+  41:Core/Src/freertos.c **** /* USER CODE BEGIN PD */
+  42:Core/Src/freertos.c **** 
+  43:Core/Src/freertos.c **** /* USER CODE END PD */
+  44:Core/Src/freertos.c **** 
+  45:Core/Src/freertos.c **** /* Private macro -------------------------------------------------------------*/
+  46:Core/Src/freertos.c **** /* USER CODE BEGIN PM */
+  47:Core/Src/freertos.c **** 
+  48:Core/Src/freertos.c **** /* USER CODE END PM */
+  49:Core/Src/freertos.c **** 
+  50:Core/Src/freertos.c **** /* Private variables ---------------------------------------------------------*/
+  51:Core/Src/freertos.c **** /* USER CODE BEGIN Variables */
+  52:Core/Src/freertos.c **** /*1.set osthred id*/
+  53:Core/Src/freertos.c **** osThreadId led_taskHandle;
+  54:Core/Src/freertos.c **** /* USER CODE END Variables */
+  55:Core/Src/freertos.c **** osThreadId defaultTaskHandle;
+  56:Core/Src/freertos.c **** osThreadId flash_time_taskHandle;
+  57:Core/Src/freertos.c **** osTimerId myTimer01Handle;
+  58:Core/Src/freertos.c **** 
+  59:Core/Src/freertos.c **** /* Private function prototypes -----------------------------------------------*/
+  60:Core/Src/freertos.c **** /* USER CODE BEGIN FunctionPrototypes */
+  61:Core/Src/freertos.c **** /*2. set start thread function*/
+  62:Core/Src/freertos.c **** void start_led_task(void const *argument);
+  63:Core/Src/freertos.c **** /* USER CODE END FunctionPrototypes */
+  64:Core/Src/freertos.c **** 
+  65:Core/Src/freertos.c **** void StartDefaultTask(void const *argument);
+  66:Core/Src/freertos.c **** void start_flash_time_task(void const *argument);
+  67:Core/Src/freertos.c **** void Callback01(void const *argument);
+  68:Core/Src/freertos.c **** 
+  69:Core/Src/freertos.c **** void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
+  70:Core/Src/freertos.c **** 
+  71:Core/Src/freertos.c **** /* GetIdleTaskMemory prototype (linked to static allocation support) */
+  72:Core/Src/freertos.c **** void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskSt
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s 			page 3
+
+
+  73:Core/Src/freertos.c **** 
+  74:Core/Src/freertos.c **** /* GetTimerTaskMemory prototype (linked to static allocation support) */
+  75:Core/Src/freertos.c **** void vApplicationGetTimerTaskMemory(StaticTask_t **ppxTimerTaskTCBBuffer, StackType_t **ppxTimerTas
+  76:Core/Src/freertos.c **** 
+  77:Core/Src/freertos.c **** /* USER CODE BEGIN GET_IDLE_TASK_MEMORY */
+  78:Core/Src/freertos.c **** static StaticTask_t xIdleTaskTCBBuffer;
+  79:Core/Src/freertos.c **** static StackType_t xIdleStack[configMINIMAL_STACK_SIZE];
+  80:Core/Src/freertos.c **** 
+  81:Core/Src/freertos.c **** void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskSt
+  82:Core/Src/freertos.c **** {
+  83:Core/Src/freertos.c ****     *ppxIdleTaskTCBBuffer = &xIdleTaskTCBBuffer;
+  84:Core/Src/freertos.c ****     *ppxIdleTaskStackBuffer = &xIdleStack[0];
+  85:Core/Src/freertos.c ****     *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
+  86:Core/Src/freertos.c ****     /* place for user code */
+  87:Core/Src/freertos.c **** }
+  88:Core/Src/freertos.c **** /* USER CODE END GET_IDLE_TASK_MEMORY */
+  89:Core/Src/freertos.c **** 
+  90:Core/Src/freertos.c **** /* USER CODE BEGIN GET_TIMER_TASK_MEMORY */
+  91:Core/Src/freertos.c **** static StaticTask_t xTimerTaskTCBBuffer;
+  92:Core/Src/freertos.c **** static StackType_t xTimerStack[configTIMER_TASK_STACK_DEPTH];
+  93:Core/Src/freertos.c **** 
+  94:Core/Src/freertos.c **** void vApplicationGetTimerTaskMemory(StaticTask_t **ppxTimerTaskTCBBuffer, StackType_t **ppxTimerTas
+  95:Core/Src/freertos.c **** {
+  96:Core/Src/freertos.c ****     *ppxTimerTaskTCBBuffer = &xTimerTaskTCBBuffer;
+  97:Core/Src/freertos.c ****     *ppxTimerTaskStackBuffer = &xTimerStack[0];
+  98:Core/Src/freertos.c ****     *pulTimerTaskStackSize = configTIMER_TASK_STACK_DEPTH;
+  99:Core/Src/freertos.c ****     /* place for user code */
+ 100:Core/Src/freertos.c **** }
+ 101:Core/Src/freertos.c **** /* USER CODE END GET_TIMER_TASK_MEMORY */
+ 102:Core/Src/freertos.c **** 
+ 103:Core/Src/freertos.c **** /**
+ 104:Core/Src/freertos.c ****   * @brief  FreeRTOS initialization
+ 105:Core/Src/freertos.c ****   * @param  None
+ 106:Core/Src/freertos.c ****   * @retval None
+ 107:Core/Src/freertos.c ****   */
+ 108:Core/Src/freertos.c **** void MX_FREERTOS_Init(void)
+ 109:Core/Src/freertos.c **** {
+ 110:Core/Src/freertos.c ****     /* USER CODE BEGIN Init */
+ 111:Core/Src/freertos.c **** 
+ 112:Core/Src/freertos.c ****     /* USER CODE END Init */
+ 113:Core/Src/freertos.c **** 
+ 114:Core/Src/freertos.c ****     /* USER CODE BEGIN RTOS_MUTEX */
+ 115:Core/Src/freertos.c ****     /* add mutexes, ... */
+ 116:Core/Src/freertos.c ****     /* USER CODE END RTOS_MUTEX */
+ 117:Core/Src/freertos.c **** 
+ 118:Core/Src/freertos.c ****     /* USER CODE BEGIN RTOS_SEMAPHORES */
+ 119:Core/Src/freertos.c ****     /* add semaphores, ... */
+ 120:Core/Src/freertos.c ****     /* USER CODE END RTOS_SEMAPHORES */
+ 121:Core/Src/freertos.c **** 
+ 122:Core/Src/freertos.c ****     /* Create the timer(s) */
+ 123:Core/Src/freertos.c ****     /* definition and creation of myTimer01 */
+ 124:Core/Src/freertos.c ****     osTimerDef(myTimer01, Callback01);
+ 125:Core/Src/freertos.c ****     myTimer01Handle = osTimerCreate(osTimer(myTimer01), osTimerPeriodic, NULL);
+ 126:Core/Src/freertos.c ****     /* USER CODE BEGIN RTOS_TIMERS */
+ 127:Core/Src/freertos.c ****     /* start timers, add new ones, ... */
+ 128:Core/Src/freertos.c ****     /*启动定时器定时1s进入回调函数Callback01*/
+ 129:Core/Src/freertos.c ****     osTimerStart(myTimer01Handle, 1000);
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s 			page 4
+
+
+ 130:Core/Src/freertos.c ****     /* USER CODE END RTOS_TIMERS */
+ 131:Core/Src/freertos.c **** 
+ 132:Core/Src/freertos.c ****     /* USER CODE BEGIN RTOS_QUEUES */
+ 133:Core/Src/freertos.c ****     /* add queues, ... */
+ 134:Core/Src/freertos.c ****     /* USER CODE END RTOS_QUEUES */
+ 135:Core/Src/freertos.c **** 
+ 136:Core/Src/freertos.c ****     /* Create the thread(s) */
+ 137:Core/Src/freertos.c ****     /* definition and creation of defaultTask */
+ 138:Core/Src/freertos.c ****     osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
+ 139:Core/Src/freertos.c ****     defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
+ 140:Core/Src/freertos.c **** 
+ 141:Core/Src/freertos.c ****     /* definition and creation of flash_time_task */
+ 142:Core/Src/freertos.c ****     osThreadDef(flash_time_task, start_flash_time_task, osPriorityAboveNormal, 0, 128);
+ 143:Core/Src/freertos.c ****     flash_time_taskHandle = osThreadCreate(osThread(flash_time_task), NULL);
+ 144:Core/Src/freertos.c **** 
+ 145:Core/Src/freertos.c ****     /* USER CODE BEGIN RTOS_THREADS */
+ 146:Core/Src/freertos.c ****     /* add threads, ... */
+ 147:Core/Src/freertos.c ****     osThreadDef(led_task, start_led_task, osPriorityAboveNormal, 0, 128);
+ 148:Core/Src/freertos.c ****     led_taskHandle = osThreadCreate(osThread(led_task), NULL);
+ 149:Core/Src/freertos.c ****     /* USER CODE END RTOS_THREADS */
+ 150:Core/Src/freertos.c **** }
+ 151:Core/Src/freertos.c **** 
+ 152:Core/Src/freertos.c **** /* USER CODE BEGIN Header_StartDefaultTask */
+ 153:Core/Src/freertos.c **** /**
+ 154:Core/Src/freertos.c ****   * @brief  Function implementing the defaultTask thread.
+ 155:Core/Src/freertos.c ****   * @param  argument: Not used 
+ 156:Core/Src/freertos.c ****   * @retval None
+ 157:Core/Src/freertos.c ****   */
+ 158:Core/Src/freertos.c **** /* USER CODE END Header_StartDefaultTask */
+ 159:Core/Src/freertos.c **** void StartDefaultTask(void const *argument)
+ 160:Core/Src/freertos.c **** {
+  37              		.loc 1 160 1 view -0
+  38              		.cfi_startproc
+  39              		@ Volatile: function does not return.
+  40              		@ args = 0, pretend = 0, frame = 0
+  41              		@ frame_needed = 0, uses_anonymous_args = 0
+  42              		@ link register save eliminated.
+  43              	.LVL0:
+  44              	.L2:
+ 161:Core/Src/freertos.c ****     /* USER CODE BEGIN StartDefaultTask */
+ 162:Core/Src/freertos.c ****     /* Infinite loop */
+ 163:Core/Src/freertos.c ****     for (;;)
+  45              		.loc 1 163 5 discriminator 1 view .LVU1
+ 164:Core/Src/freertos.c ****     {
+ 165:Core/Src/freertos.c ****     }
+  46              		.loc 1 165 5 discriminator 1 view .LVU2
+ 163:Core/Src/freertos.c ****     {
+  47              		.loc 1 163 11 discriminator 1 view .LVU3
+  48 0000 FEE7     		b	.L2
+  49              		.cfi_endproc
+  50              	.LFE73:
+  52              		.section	.rodata.start_flash_time_task.str1.4,"aMS",%progbits,1
+  53              		.align	2
+  54              	.LC6:
+  55 0000 64617465 		.ascii	"date:\000"
+  55      3A00
+  56 0006 0000     		.align	2
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s 			page 5
+
+
+  57              	.LC7:
+  58 0008 74696D65 		.ascii	"time:\000"
+  58      3A00
+  59 000e 0000     		.align	2
+  60              	.LC8:
+  61 0010 E88B8FE5 		.ascii	"\350\213\217\345\237\271\344\275\251\346\210\221\347"
+  61      9FB9E4BD 
+  61      A9E68891 
+  61      E7
+  62 001d 88B1E4BD 		.ascii	"\210\261\344\275\240\357\274\201\000"
+  62      A0EFBC81 
+  62      00
+  63 0026 0000     		.align	2
+  64              	.LC9:
+  65 0028 6C6F7665 		.ascii	"love you forever\000"
+  65      20796F75 
+  65      20666F72 
+  65      65766572 
+  65      00
+  66              		.section	.text.start_flash_time_task,"ax",%progbits
+  67              		.align	1
+  68              		.global	start_flash_time_task
+  69              		.syntax unified
+  70              		.thumb
+  71              		.thumb_func
+  72              		.fpu softvfp
+  74              	start_flash_time_task:
+  75              	.LFB74:
+ 166:Core/Src/freertos.c ****     /* USER CODE END StartDefaultTask */
+ 167:Core/Src/freertos.c **** }
+ 168:Core/Src/freertos.c **** 
+ 169:Core/Src/freertos.c **** /* USER CODE BEGIN Header_start_flash_time_task */
+ 170:Core/Src/freertos.c **** /**
+ 171:Core/Src/freertos.c **** * @brief Function implementing the flash_time_task thread.
+ 172:Core/Src/freertos.c **** * @param argument: Not used
+ 173:Core/Src/freertos.c **** * @retval None
+ 174:Core/Src/freertos.c **** */
+ 175:Core/Src/freertos.c **** /* USER CODE END Header_start_flash_time_task */
+ 176:Core/Src/freertos.c **** void start_flash_time_task(void const *argument)
+ 177:Core/Src/freertos.c **** {
+  76              		.loc 1 177 1 view -0
+  77              		.cfi_startproc
+  78              		@ Volatile: function does not return.
+  79              		@ args = 0, pretend = 0, frame = 0
+  80              		@ frame_needed = 0, uses_anonymous_args = 0
+  81              	.LVL1:
+  82              		.loc 1 177 1 is_stmt 0 view .LVU5
+  83 0000 08B5     		push	{r3, lr}
+  84              	.LCFI0:
+  85              		.cfi_def_cfa_offset 8
+  86              		.cfi_offset 3, -8
+  87              		.cfi_offset 14, -4
+  88              	.LVL2:
+  89              	.L4:
+ 178:Core/Src/freertos.c ****     /* USER CODE BEGIN start_flash_time_task */
+ 179:Core/Src/freertos.c ****     /* Infinite loop */
+ 180:Core/Src/freertos.c ****     for (;;)
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s 			page 6
+
+
+  90              		.loc 1 180 5 is_stmt 1 discriminator 1 view .LVU6
+ 181:Core/Src/freertos.c ****     {
+ 182:Core/Src/freertos.c ****         show_string_atype(0, 0, "date:", 5);
+  91              		.loc 1 182 9 discriminator 1 view .LVU7
+  92 0002 0523     		movs	r3, #5
+  93 0004 0F4A     		ldr	r2, .L6
+  94 0006 0021     		movs	r1, #0
+  95 0008 0846     		mov	r0, r1
+  96 000a FFF7FEFF 		bl	show_string_atype
+  97              	.LVL3:
+ 183:Core/Src/freertos.c ****         display_date(0, 5);
+  98              		.loc 1 183 9 discriminator 1 view .LVU8
+  99 000e 0521     		movs	r1, #5
+ 100 0010 0020     		movs	r0, #0
+ 101 0012 FFF7FEFF 		bl	display_date
+ 102              	.LVL4:
+ 184:Core/Src/freertos.c ****         show_string_atype(2, 0, "time:", 5);
+ 103              		.loc 1 184 9 discriminator 1 view .LVU9
+ 104 0016 0523     		movs	r3, #5
+ 105 0018 0B4A     		ldr	r2, .L6+4
+ 106 001a 0021     		movs	r1, #0
+ 107 001c 0220     		movs	r0, #2
+ 108 001e FFF7FEFF 		bl	show_string_atype
+ 109              	.LVL5:
+ 185:Core/Src/freertos.c ****         display_time(2, 5);
+ 110              		.loc 1 185 9 discriminator 1 view .LVU10
+ 111 0022 0521     		movs	r1, #5
+ 112 0024 0220     		movs	r0, #2
+ 113 0026 FFF7FEFF 		bl	display_time
+ 114              	.LVL6:
+ 186:Core/Src/freertos.c ****         show_chs_string(4, 0, "苏培佩我爱你！");
+ 115              		.loc 1 186 9 discriminator 1 view .LVU11
+ 116 002a 084A     		ldr	r2, .L6+8
+ 117 002c 0021     		movs	r1, #0
+ 118 002e 0420     		movs	r0, #4
+ 119 0030 FFF7FEFF 		bl	show_chs_string
+ 120              	.LVL7:
+ 187:Core/Src/freertos.c ****         show_string_atype(6, 0, "love you forever", 16);
+ 121              		.loc 1 187 9 discriminator 1 view .LVU12
+ 122 0034 1023     		movs	r3, #16
+ 123 0036 064A     		ldr	r2, .L6+12
+ 124 0038 0021     		movs	r1, #0
+ 125 003a 0620     		movs	r0, #6
+ 126 003c FFF7FEFF 		bl	show_string_atype
+ 127              	.LVL8:
+ 180:Core/Src/freertos.c ****     {
+ 128              		.loc 1 180 11 discriminator 1 view .LVU13
+ 129 0040 DFE7     		b	.L4
+ 130              	.L7:
+ 131 0042 00BF     		.align	2
+ 132              	.L6:
+ 133 0044 00000000 		.word	.LC6
+ 134 0048 08000000 		.word	.LC7
+ 135 004c 10000000 		.word	.LC8
+ 136 0050 28000000 		.word	.LC9
+ 137              		.cfi_endproc
+ 138              	.LFE74:
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s 			page 7
+
+
+ 140              		.section	.text.Callback01,"ax",%progbits
+ 141              		.align	1
+ 142              		.global	Callback01
+ 143              		.syntax unified
+ 144              		.thumb
+ 145              		.thumb_func
+ 146              		.fpu softvfp
+ 148              	Callback01:
+ 149              	.LVL9:
+ 150              	.LFB75:
+ 188:Core/Src/freertos.c ****     }
+ 189:Core/Src/freertos.c ****     /* USER CODE END start_flash_time_task */
+ 190:Core/Src/freertos.c **** }
+ 191:Core/Src/freertos.c **** 
+ 192:Core/Src/freertos.c **** /* Callback01 function */
+ 193:Core/Src/freertos.c **** void Callback01(void const *argument)
+ 194:Core/Src/freertos.c **** {
+ 151              		.loc 1 194 1 view -0
+ 152              		.cfi_startproc
+ 153              		@ args = 0, pretend = 0, frame = 0
+ 154              		@ frame_needed = 0, uses_anonymous_args = 0
+ 155              		.loc 1 194 1 is_stmt 0 view .LVU15
+ 156 0000 08B5     		push	{r3, lr}
+ 157              	.LCFI1:
+ 158              		.cfi_def_cfa_offset 8
+ 159              		.cfi_offset 3, -8
+ 160              		.cfi_offset 14, -4
+ 195:Core/Src/freertos.c ****     /* USER CODE BEGIN Callback01 */
+ 196:Core/Src/freertos.c ****     get_time(&gettime, &getdate);
+ 161              		.loc 1 196 5 is_stmt 1 view .LVU16
+ 162 0002 0449     		ldr	r1, .L10
+ 163 0004 0448     		ldr	r0, .L10+4
+ 164              	.LVL10:
+ 165              		.loc 1 196 5 is_stmt 0 view .LVU17
+ 166 0006 FFF7FEFF 		bl	get_time
+ 167              	.LVL11:
+ 197:Core/Src/freertos.c ****     g_flag_time++;
+ 168              		.loc 1 197 5 is_stmt 1 view .LVU18
+ 169              		.loc 1 197 16 is_stmt 0 view .LVU19
+ 170 000a 044A     		ldr	r2, .L10+8
+ 171 000c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 172 000e 0133     		adds	r3, r3, #1
+ 173 0010 1370     		strb	r3, [r2]
+ 198:Core/Src/freertos.c ****     /* USER CODE END Callback01 */
+ 199:Core/Src/freertos.c **** }
+ 174              		.loc 1 199 1 view .LVU20
+ 175 0012 08BD     		pop	{r3, pc}
+ 176              	.L11:
+ 177              		.align	2
+ 178              	.L10:
+ 179 0014 00000000 		.word	getdate
+ 180 0018 00000000 		.word	gettime
+ 181 001c 00000000 		.word	g_flag_time
+ 182              		.cfi_endproc
+ 183              	.LFE75:
+ 185              		.section	.text.start_led_task,"ax",%progbits
+ 186              		.align	1
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s 			page 8
+
+
+ 187              		.global	start_led_task
+ 188              		.syntax unified
+ 189              		.thumb
+ 190              		.thumb_func
+ 191              		.fpu softvfp
+ 193              	start_led_task:
+ 194              	.LFB76:
+ 200:Core/Src/freertos.c **** 
+ 201:Core/Src/freertos.c **** /* Private application code --------------------------------------------------*/
+ 202:Core/Src/freertos.c **** /* USER CODE BEGIN Application */
+ 203:Core/Src/freertos.c **** void start_led_task(void const *argument)
+ 204:Core/Src/freertos.c **** {
+ 195              		.loc 1 204 1 is_stmt 1 view -0
+ 196              		.cfi_startproc
+ 197              		@ Volatile: function does not return.
+ 198              		@ args = 0, pretend = 0, frame = 0
+ 199              		@ frame_needed = 0, uses_anonymous_args = 0
+ 200              	.LVL12:
+ 201              		.loc 1 204 1 is_stmt 0 view .LVU22
+ 202 0000 08B5     		push	{r3, lr}
+ 203              	.LCFI2:
+ 204              		.cfi_def_cfa_offset 8
+ 205              		.cfi_offset 3, -8
+ 206              		.cfi_offset 14, -4
+ 207 0002 0AE0     		b	.L13
+ 208              	.LVL13:
+ 209              	.L18:
+ 205:Core/Src/freertos.c ****     for (;;)
+ 206:Core/Src/freertos.c ****     {
+ 207:Core/Src/freertos.c ****         if (g_flag_time == 1)
+ 208:Core/Src/freertos.c ****         {
+ 209:Core/Src/freertos.c ****             red_led_off;
+ 210              		.loc 1 209 13 is_stmt 1 view .LVU23
+ 211 0004 164C     		ldr	r4, .L20
+ 212 0006 0122     		movs	r2, #1
+ 213 0008 2021     		movs	r1, #32
+ 214 000a 2046     		mov	r0, r4
+ 215 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 216              	.LVL14:
+ 210:Core/Src/freertos.c ****             green_led_on;
+ 217              		.loc 1 210 13 view .LVU24
+ 218 0010 0022     		movs	r2, #0
+ 219 0012 0121     		movs	r1, #1
+ 220 0014 2046     		mov	r0, r4
+ 221 0016 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 222              	.LVL15:
+ 223              	.L13:
+ 205:Core/Src/freertos.c ****     for (;;)
+ 224              		.loc 1 205 5 view .LVU25
+ 207:Core/Src/freertos.c ****         {
+ 225              		.loc 1 207 9 view .LVU26
+ 207:Core/Src/freertos.c ****         {
+ 226              		.loc 1 207 25 is_stmt 0 view .LVU27
+ 227 001a 124B     		ldr	r3, .L20+4
+ 228 001c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 207:Core/Src/freertos.c ****         {
+ 229              		.loc 1 207 12 view .LVU28
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s 			page 9
+
+
+ 230 001e 012B     		cmp	r3, #1
+ 231 0020 F0D0     		beq	.L18
+ 211:Core/Src/freertos.c ****         }
+ 212:Core/Src/freertos.c ****         else if (g_flag_time == 2)
+ 232              		.loc 1 212 14 is_stmt 1 view .LVU29
+ 233              		.loc 1 212 17 is_stmt 0 view .LVU30
+ 234 0022 022B     		cmp	r3, #2
+ 235 0024 10D0     		beq	.L19
+ 213:Core/Src/freertos.c ****         {
+ 214:Core/Src/freertos.c ****             green_led_off;
+ 215:Core/Src/freertos.c ****             blue_led_on;
+ 216:Core/Src/freertos.c ****         }
+ 217:Core/Src/freertos.c ****         else if (g_flag_time == 3)
+ 236              		.loc 1 217 14 is_stmt 1 view .LVU31
+ 237              		.loc 1 217 17 is_stmt 0 view .LVU32
+ 238 0026 032B     		cmp	r3, #3
+ 239 0028 F7D1     		bne	.L13
+ 218:Core/Src/freertos.c ****         {
+ 219:Core/Src/freertos.c ****             blue_led_off;
+ 240              		.loc 1 219 13 is_stmt 1 view .LVU33
+ 241 002a 0D4C     		ldr	r4, .L20
+ 242 002c 0122     		movs	r2, #1
+ 243 002e 0221     		movs	r1, #2
+ 244 0030 2046     		mov	r0, r4
+ 245 0032 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 246              	.LVL16:
+ 220:Core/Src/freertos.c ****             red_led_on;
+ 247              		.loc 1 220 13 view .LVU34
+ 248 0036 0022     		movs	r2, #0
+ 249 0038 2021     		movs	r1, #32
+ 250 003a 2046     		mov	r0, r4
+ 251 003c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 252              	.LVL17:
+ 221:Core/Src/freertos.c ****             g_flag_time = 0;
+ 253              		.loc 1 221 13 view .LVU35
+ 254              		.loc 1 221 25 is_stmt 0 view .LVU36
+ 255 0040 084B     		ldr	r3, .L20+4
+ 256 0042 0022     		movs	r2, #0
+ 257 0044 1A70     		strb	r2, [r3]
+ 258 0046 E8E7     		b	.L13
+ 259              	.L19:
+ 214:Core/Src/freertos.c ****             blue_led_on;
+ 260              		.loc 1 214 13 is_stmt 1 view .LVU37
+ 261 0048 054C     		ldr	r4, .L20
+ 262 004a 0122     		movs	r2, #1
+ 263 004c 1146     		mov	r1, r2
+ 264 004e 2046     		mov	r0, r4
+ 265 0050 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 266              	.LVL18:
+ 215:Core/Src/freertos.c ****         }
+ 267              		.loc 1 215 13 view .LVU38
+ 268 0054 0022     		movs	r2, #0
+ 269 0056 0221     		movs	r1, #2
+ 270 0058 2046     		mov	r0, r4
+ 271 005a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 272              	.LVL19:
+ 273 005e DCE7     		b	.L13
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s 			page 10
+
+
+ 274              	.L21:
+ 275              		.align	2
+ 276              	.L20:
+ 277 0060 000C0140 		.word	1073810432
+ 278 0064 00000000 		.word	g_flag_time
+ 279              		.cfi_endproc
+ 280              	.LFE76:
+ 282              		.section	.text.vApplicationGetIdleTaskMemory,"ax",%progbits
+ 283              		.align	1
+ 284              		.global	vApplicationGetIdleTaskMemory
+ 285              		.syntax unified
+ 286              		.thumb
+ 287              		.thumb_func
+ 288              		.fpu softvfp
+ 290              	vApplicationGetIdleTaskMemory:
+ 291              	.LVL20:
+ 292              	.LFB70:
+  82:Core/Src/freertos.c ****     *ppxIdleTaskTCBBuffer = &xIdleTaskTCBBuffer;
+ 293              		.loc 1 82 1 view -0
+ 294              		.cfi_startproc
+ 295              		@ args = 0, pretend = 0, frame = 0
+ 296              		@ frame_needed = 0, uses_anonymous_args = 0
+ 297              		@ link register save eliminated.
+  83:Core/Src/freertos.c ****     *ppxIdleTaskStackBuffer = &xIdleStack[0];
+ 298              		.loc 1 83 5 view .LVU40
+  83:Core/Src/freertos.c ****     *ppxIdleTaskStackBuffer = &xIdleStack[0];
+ 299              		.loc 1 83 27 is_stmt 0 view .LVU41
+ 300 0000 034B     		ldr	r3, .L23
+ 301 0002 0360     		str	r3, [r0]
+  84:Core/Src/freertos.c ****     *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
+ 302              		.loc 1 84 5 is_stmt 1 view .LVU42
+  84:Core/Src/freertos.c ****     *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
+ 303              		.loc 1 84 29 is_stmt 0 view .LVU43
+ 304 0004 034B     		ldr	r3, .L23+4
+ 305 0006 0B60     		str	r3, [r1]
+  85:Core/Src/freertos.c ****     /* place for user code */
+ 306              		.loc 1 85 5 is_stmt 1 view .LVU44
+  85:Core/Src/freertos.c ****     /* place for user code */
+ 307              		.loc 1 85 27 is_stmt 0 view .LVU45
+ 308 0008 8023     		movs	r3, #128
+ 309 000a 1360     		str	r3, [r2]
+  87:Core/Src/freertos.c **** /* USER CODE END GET_IDLE_TASK_MEMORY */
+ 310              		.loc 1 87 1 view .LVU46
+ 311 000c 7047     		bx	lr
+ 312              	.L24:
+ 313 000e 00BF     		.align	2
+ 314              	.L23:
+ 315 0010 00000000 		.word	.LANCHOR0
+ 316 0014 00000000 		.word	.LANCHOR1
+ 317              		.cfi_endproc
+ 318              	.LFE70:
+ 320              		.section	.text.vApplicationGetTimerTaskMemory,"ax",%progbits
+ 321              		.align	1
+ 322              		.global	vApplicationGetTimerTaskMemory
+ 323              		.syntax unified
+ 324              		.thumb
+ 325              		.thumb_func
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s 			page 11
+
+
+ 326              		.fpu softvfp
+ 328              	vApplicationGetTimerTaskMemory:
+ 329              	.LVL21:
+ 330              	.LFB71:
+  95:Core/Src/freertos.c ****     *ppxTimerTaskTCBBuffer = &xTimerTaskTCBBuffer;
+ 331              		.loc 1 95 1 is_stmt 1 view -0
+ 332              		.cfi_startproc
+ 333              		@ args = 0, pretend = 0, frame = 0
+ 334              		@ frame_needed = 0, uses_anonymous_args = 0
+ 335              		@ link register save eliminated.
+  96:Core/Src/freertos.c ****     *ppxTimerTaskStackBuffer = &xTimerStack[0];
+ 336              		.loc 1 96 5 view .LVU48
+  96:Core/Src/freertos.c ****     *ppxTimerTaskStackBuffer = &xTimerStack[0];
+ 337              		.loc 1 96 28 is_stmt 0 view .LVU49
+ 338 0000 034B     		ldr	r3, .L26
+ 339 0002 0360     		str	r3, [r0]
+  97:Core/Src/freertos.c ****     *pulTimerTaskStackSize = configTIMER_TASK_STACK_DEPTH;
+ 340              		.loc 1 97 5 is_stmt 1 view .LVU50
+  97:Core/Src/freertos.c ****     *pulTimerTaskStackSize = configTIMER_TASK_STACK_DEPTH;
+ 341              		.loc 1 97 30 is_stmt 0 view .LVU51
+ 342 0004 034B     		ldr	r3, .L26+4
+ 343 0006 0B60     		str	r3, [r1]
+  98:Core/Src/freertos.c ****     /* place for user code */
+ 344              		.loc 1 98 5 is_stmt 1 view .LVU52
+  98:Core/Src/freertos.c ****     /* place for user code */
+ 345              		.loc 1 98 28 is_stmt 0 view .LVU53
+ 346 0008 4FF48073 		mov	r3, #256
+ 347 000c 1360     		str	r3, [r2]
+ 100:Core/Src/freertos.c **** /* USER CODE END GET_TIMER_TASK_MEMORY */
+ 348              		.loc 1 100 1 view .LVU54
+ 349 000e 7047     		bx	lr
+ 350              	.L27:
+ 351              		.align	2
+ 352              	.L26:
+ 353 0010 00000000 		.word	.LANCHOR2
+ 354 0014 00000000 		.word	.LANCHOR3
+ 355              		.cfi_endproc
+ 356              	.LFE71:
+ 358              		.section	.text.MX_FREERTOS_Init,"ax",%progbits
+ 359              		.align	1
+ 360              		.global	MX_FREERTOS_Init
+ 361              		.syntax unified
+ 362              		.thumb
+ 363              		.thumb_func
+ 364              		.fpu softvfp
+ 366              	MX_FREERTOS_Init:
+ 367              	.LFB72:
+ 109:Core/Src/freertos.c ****     /* USER CODE BEGIN Init */
+ 368              		.loc 1 109 1 is_stmt 1 view -0
+ 369              		.cfi_startproc
+ 370              		@ args = 0, pretend = 0, frame = 96
+ 371              		@ frame_needed = 0, uses_anonymous_args = 0
+ 372 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 373              	.LCFI3:
+ 374              		.cfi_def_cfa_offset 20
+ 375              		.cfi_offset 4, -20
+ 376              		.cfi_offset 5, -16
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s 			page 12
+
+
+ 377              		.cfi_offset 6, -12
+ 378              		.cfi_offset 7, -8
+ 379              		.cfi_offset 14, -4
+ 380 0002 99B0     		sub	sp, sp, #100
+ 381              	.LCFI4:
+ 382              		.cfi_def_cfa_offset 120
+ 124:Core/Src/freertos.c ****     myTimer01Handle = osTimerCreate(osTimer(myTimer01), osTimerPeriodic, NULL);
+ 383              		.loc 1 124 5 view .LVU56
+ 384 0004 1E4B     		ldr	r3, .L30
+ 385 0006 1693     		str	r3, [sp, #88]
+ 386 0008 0027     		movs	r7, #0
+ 387 000a 1797     		str	r7, [sp, #92]
+ 125:Core/Src/freertos.c ****     /* USER CODE BEGIN RTOS_TIMERS */
+ 388              		.loc 1 125 5 view .LVU57
+ 125:Core/Src/freertos.c ****     /* USER CODE BEGIN RTOS_TIMERS */
+ 389              		.loc 1 125 23 is_stmt 0 view .LVU58
+ 390 000c 3A46     		mov	r2, r7
+ 391 000e 0121     		movs	r1, #1
+ 392 0010 16A8     		add	r0, sp, #88
+ 393 0012 FFF7FEFF 		bl	osTimerCreate
+ 394              	.LVL22:
+ 125:Core/Src/freertos.c ****     /* USER CODE BEGIN RTOS_TIMERS */
+ 395              		.loc 1 125 21 view .LVU59
+ 396 0016 1B4B     		ldr	r3, .L30+4
+ 397 0018 1860     		str	r0, [r3]
+ 129:Core/Src/freertos.c ****     /* USER CODE END RTOS_TIMERS */
+ 398              		.loc 1 129 5 is_stmt 1 view .LVU60
+ 399 001a 4FF47A71 		mov	r1, #1000
+ 400 001e FFF7FEFF 		bl	osTimerStart
+ 401              	.LVL23:
+ 138:Core/Src/freertos.c ****     defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
+ 402              		.loc 1 138 5 view .LVU61
+ 403 0022 194C     		ldr	r4, .L30+8
+ 404 0024 0FAD     		add	r5, sp, #60
+ 405 0026 2646     		mov	r6, r4
+ 406 0028 0FCE     		ldmia	r6!, {r0, r1, r2, r3}
+ 407 002a 0FC5     		stmia	r5!, {r0, r1, r2, r3}
+ 408 002c 96E80700 		ldm	r6, {r0, r1, r2}
+ 409 0030 85E80700 		stm	r5, {r0, r1, r2}
+ 139:Core/Src/freertos.c **** 
+ 410              		.loc 1 139 5 view .LVU62
+ 139:Core/Src/freertos.c **** 
+ 411              		.loc 1 139 25 is_stmt 0 view .LVU63
+ 412 0034 3946     		mov	r1, r7
+ 413 0036 0FA8     		add	r0, sp, #60
+ 414 0038 FFF7FEFF 		bl	osThreadCreate
+ 415              	.LVL24:
+ 139:Core/Src/freertos.c **** 
+ 416              		.loc 1 139 23 view .LVU64
+ 417 003c 134B     		ldr	r3, .L30+12
+ 418 003e 1860     		str	r0, [r3]
+ 142:Core/Src/freertos.c ****     flash_time_taskHandle = osThreadCreate(osThread(flash_time_task), NULL);
+ 419              		.loc 1 142 5 is_stmt 1 view .LVU65
+ 420 0040 08AD     		add	r5, sp, #32
+ 421 0042 04F11C06 		add	r6, r4, #28
+ 422 0046 0FCE     		ldmia	r6!, {r0, r1, r2, r3}
+ 423 0048 0FC5     		stmia	r5!, {r0, r1, r2, r3}
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s 			page 13
+
+
+ 424 004a 96E80700 		ldm	r6, {r0, r1, r2}
+ 425 004e 85E80700 		stm	r5, {r0, r1, r2}
+ 143:Core/Src/freertos.c **** 
+ 426              		.loc 1 143 5 view .LVU66
+ 143:Core/Src/freertos.c **** 
+ 427              		.loc 1 143 29 is_stmt 0 view .LVU67
+ 428 0052 3946     		mov	r1, r7
+ 429 0054 08A8     		add	r0, sp, #32
+ 430 0056 FFF7FEFF 		bl	osThreadCreate
+ 431              	.LVL25:
+ 143:Core/Src/freertos.c **** 
+ 432              		.loc 1 143 27 view .LVU68
+ 433 005a 0D4B     		ldr	r3, .L30+16
+ 434 005c 1860     		str	r0, [r3]
+ 147:Core/Src/freertos.c ****     led_taskHandle = osThreadCreate(osThread(led_task), NULL);
+ 435              		.loc 1 147 5 is_stmt 1 view .LVU69
+ 436 005e 01AD     		add	r5, sp, #4
+ 437 0060 3834     		adds	r4, r4, #56
+ 438 0062 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
+ 439 0064 0FC5     		stmia	r5!, {r0, r1, r2, r3}
+ 440 0066 94E80700 		ldm	r4, {r0, r1, r2}
+ 441 006a 85E80700 		stm	r5, {r0, r1, r2}
+ 148:Core/Src/freertos.c ****     /* USER CODE END RTOS_THREADS */
+ 442              		.loc 1 148 5 view .LVU70
+ 148:Core/Src/freertos.c ****     /* USER CODE END RTOS_THREADS */
+ 443              		.loc 1 148 22 is_stmt 0 view .LVU71
+ 444 006e 3946     		mov	r1, r7
+ 445 0070 01A8     		add	r0, sp, #4
+ 446 0072 FFF7FEFF 		bl	osThreadCreate
+ 447              	.LVL26:
+ 148:Core/Src/freertos.c ****     /* USER CODE END RTOS_THREADS */
+ 448              		.loc 1 148 20 view .LVU72
+ 449 0076 074B     		ldr	r3, .L30+20
+ 450 0078 1860     		str	r0, [r3]
+ 150:Core/Src/freertos.c **** 
+ 451              		.loc 1 150 1 view .LVU73
+ 452 007a 19B0     		add	sp, sp, #100
+ 453              	.LCFI5:
+ 454              		.cfi_def_cfa_offset 20
+ 455              		@ sp needed
+ 456 007c F0BD     		pop	{r4, r5, r6, r7, pc}
+ 457              	.L31:
+ 458 007e 00BF     		.align	2
+ 459              	.L30:
+ 460 0080 00000000 		.word	Callback01
+ 461 0084 00000000 		.word	myTimer01Handle
+ 462 0088 00000000 		.word	.LANCHOR4
+ 463 008c 00000000 		.word	defaultTaskHandle
+ 464 0090 00000000 		.word	flash_time_taskHandle
+ 465 0094 00000000 		.word	led_taskHandle
+ 466              		.cfi_endproc
+ 467              	.LFE72:
+ 469              		.comm	myTimer01Handle,4,4
+ 470              		.comm	flash_time_taskHandle,4,4
+ 471              		.comm	defaultTaskHandle,4,4
+ 472              		.comm	led_taskHandle,4,4
+ 473              		.comm	gettime,3,4
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s 			page 14
+
+
+ 474              		.comm	getdate,4,4
+ 475              		.section	.rodata
+ 476              		.align	2
+ 477              		.set	.LANCHOR4,. + 0
+ 478              	.LC10:
+ 479 0000 00000000 		.word	.LC0
+ 480 0004 00000000 		.word	StartDefaultTask
+ 481 0008 0000     		.short	0
+ 482 000a 0000     		.space	2
+ 483 000c 00000000 		.word	0
+ 484 0010 80000000 		.word	128
+ 485 0014 00000000 		.word	0
+ 486 0018 00000000 		.word	0
+ 487              	.LC11:
+ 488 001c 0C000000 		.word	.LC2
+ 489 0020 00000000 		.word	start_flash_time_task
+ 490 0024 0100     		.short	1
+ 491 0026 0000     		.space	2
+ 492 0028 00000000 		.word	0
+ 493 002c 80000000 		.word	128
+ 494 0030 00000000 		.word	0
+ 495 0034 00000000 		.word	0
+ 496              	.LC12:
+ 497 0038 1C000000 		.word	.LC4
+ 498 003c 00000000 		.word	start_led_task
+ 499 0040 0100     		.short	1
+ 500 0042 0000     		.space	2
+ 501 0044 00000000 		.word	0
+ 502 0048 80000000 		.word	128
+ 503 004c 00000000 		.word	0
+ 504 0050 00000000 		.word	0
+ 505              		.section	.bss.xIdleStack,"aw",%nobits
+ 506              		.align	2
+ 507              		.set	.LANCHOR1,. + 0
+ 510              	xIdleStack:
+ 511 0000 00000000 		.space	512
+ 511      00000000 
+ 511      00000000 
+ 511      00000000 
+ 511      00000000 
+ 512              		.section	.bss.xIdleTaskTCBBuffer,"aw",%nobits
+ 513              		.align	2
+ 514              		.set	.LANCHOR0,. + 0
+ 517              	xIdleTaskTCBBuffer:
+ 518 0000 00000000 		.space	84
+ 518      00000000 
+ 518      00000000 
+ 518      00000000 
+ 518      00000000 
+ 519              		.section	.bss.xTimerStack,"aw",%nobits
+ 520              		.align	2
+ 521              		.set	.LANCHOR3,. + 0
+ 524              	xTimerStack:
+ 525 0000 00000000 		.space	1024
+ 525      00000000 
+ 525      00000000 
+ 525      00000000 
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s 			page 15
+
+
+ 525      00000000 
+ 526              		.section	.bss.xTimerTaskTCBBuffer,"aw",%nobits
+ 527              		.align	2
+ 528              		.set	.LANCHOR2,. + 0
+ 531              	xTimerTaskTCBBuffer:
+ 532 0000 00000000 		.space	84
+ 532      00000000 
+ 532      00000000 
+ 532      00000000 
+ 532      00000000 
+ 533              		.text
+ 534              	.Letext0:
+ 535              		.file 2 "f:\\work_project\\9 2019-q4-major\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 536              		.file 3 "f:\\work_project\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 537              		.file 4 "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h"
+ 538              		.file 5 "Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h"
+ 539              		.file 6 "Middlewares/Third_Party/FreeRTOS/Source/include/task.h"
+ 540              		.file 7 "Core/Inc/FreeRTOSConfig.h"
+ 541              		.file 8 "Drivers/CMSIS/Include/core_cm3.h"
+ 542              		.file 9 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
+ 543              		.file 10 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h"
+ 544              		.file 11 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 545              		.file 12 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+ 546              		.file 13 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 547              		.file 14 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h"
+ 548              		.file 15 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc.h"
+ 549              		.file 16 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 550              		.file 17 "Middlewares/Third_Party/FreeRTOS/Source/include/timers.h"
+ 551              		.file 18 "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h"
+ 552              		.file 19 "Core/Inc/i2c.h"
+ 553              		.file 20 "Core/Inc/rtc.h"
+ 554              		.file 21 "Core/Inc/oled.h"
+ 555              		.file 22 "Core/Inc/display.h"
+ARM GAS  C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 freertos.c
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:13     .rodata.str1.4:00000000 $d
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:26     .text.StartDefaultTask:00000000 $t
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:34     .text.StartDefaultTask:00000000 StartDefaultTask
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:53     .rodata.start_flash_time_task.str1.4:00000000 $d
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:67     .text.start_flash_time_task:00000000 $t
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:74     .text.start_flash_time_task:00000000 start_flash_time_task
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:133    .text.start_flash_time_task:00000044 $d
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:141    .text.Callback01:00000000 $t
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:148    .text.Callback01:00000000 Callback01
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:179    .text.Callback01:00000014 $d
+                            *COM*:00000004 getdate
+                            *COM*:00000003 gettime
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:186    .text.start_led_task:00000000 $t
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:193    .text.start_led_task:00000000 start_led_task
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:277    .text.start_led_task:00000060 $d
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:283    .text.vApplicationGetIdleTaskMemory:00000000 $t
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:290    .text.vApplicationGetIdleTaskMemory:00000000 vApplicationGetIdleTaskMemory
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:315    .text.vApplicationGetIdleTaskMemory:00000010 $d
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:321    .text.vApplicationGetTimerTaskMemory:00000000 $t
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:328    .text.vApplicationGetTimerTaskMemory:00000000 vApplicationGetTimerTaskMemory
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:353    .text.vApplicationGetTimerTaskMemory:00000010 $d
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:359    .text.MX_FREERTOS_Init:00000000 $t
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:366    .text.MX_FREERTOS_Init:00000000 MX_FREERTOS_Init
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:460    .text.MX_FREERTOS_Init:00000080 $d
+                            *COM*:00000004 myTimer01Handle
+                            *COM*:00000004 defaultTaskHandle
+                            *COM*:00000004 flash_time_taskHandle
+                            *COM*:00000004 led_taskHandle
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:476    .rodata:00000000 $d
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:506    .bss.xIdleStack:00000000 $d
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:510    .bss.xIdleStack:00000000 xIdleStack
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:513    .bss.xIdleTaskTCBBuffer:00000000 $d
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:517    .bss.xIdleTaskTCBBuffer:00000000 xIdleTaskTCBBuffer
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:520    .bss.xTimerStack:00000000 $d
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:524    .bss.xTimerStack:00000000 xTimerStack
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:527    .bss.xTimerTaskTCBBuffer:00000000 $d
+C:\Users\25339\AppData\Local\Temp\ccH4Qv4f.s:531    .bss.xTimerTaskTCBBuffer:00000000 xTimerTaskTCBBuffer
+
+UNDEFINED SYMBOLS
+show_string_atype
+display_date
+display_time
+show_chs_string
+get_time
+g_flag_time
+HAL_GPIO_WritePin
+osTimerCreate
+osTimerStart
+osThreadCreate
