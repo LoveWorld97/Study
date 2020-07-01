@@ -1,8 +1,10 @@
 #MicroXplorer Configuration settings - do not modify
 FREERTOS.FootprintOK=true
-FREERTOS.IPParameters=Tasks01,configTOTAL_HEAP_SIZE,FootprintOK
+FREERTOS.IPParameters=Tasks01,configTOTAL_HEAP_SIZE,FootprintOK,configUSE_TIMERS,Timers01
 FREERTOS.Tasks01=defaultTask,0,128,StartDefaultTask,Default,NULL,Dynamic,NULL,NULL;flash_time_task,-3,128,start_flash_time_task,Default,NULL,Dynamic,NULL,NULL
+FREERTOS.Timers01=myTimer01,Callback01,osTimerPeriodic,Default,NULL,Dynamic,NULL
 FREERTOS.configTOTAL_HEAP_SIZE=17408
+FREERTOS.configUSE_TIMERS=1
 File.Version=6
 KeepUserPlacement=false
 Mcu.Family=STM32F1

@@ -33,14 +33,18 @@
 extern RTC_HandleTypeDef hrtc;
 
 /* USER CODE BEGIN Private defines */
-extern RTC_TimeTypeDef gettime;
-extern RTC_DateTypeDef getdate;
+
 /* USER CODE END Private defines */
 
 void MX_RTC_Init(void);
 
 /* USER CODE BEGIN Prototypes */
+    RTC_DateTypeDef getdate;
+    RTC_TimeTypeDef gettime;
 
+    extern void get_time(RTC_TimeTypeDef *RTC_Time, RTC_DateTypeDef *RTC_Date);
+    extern void set_time(uint8_t hours, uint8_t minutes, uint8_t seconds);
+    extern void set_date(uint8_t year, uint8_t month, uint8_t date);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

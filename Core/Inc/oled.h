@@ -5,14 +5,12 @@
 #include "stdint.h"
 #define u8 uint8_t
 #define u32 uint32_t
-//    一些使用例�?
-//		OLED_ShowStr(0, 0, "hello world", 2);//显示字符�?
-//	  OLED_ShowStr(0, 2, "hello world", 1);//显示字符�?
-//	  OLED_ShowCN_STR(0, 4 , 0 , 8);
-//		sprintf(num_temp_buffer,"show num:%0.2f",num);
-//		OLED_ShowStr(0, 6, num_temp_buffer, 2);//显示字符�?
-//		OLED_CLS();
-//		OLED_DrawBMP(0,0,128,7,BMP2);
+#define CN_BYTE 3   /*A Chinese account for the number of bytes?UTF-8:3bytes*/
+#define EN_BYTE 1   /*A English account for the number of bytes?UTF-8:1bytes*/
+#define CHAR_SIZE_LINE16 16/*One character of the number of rows*/
+#define CHAR_SIZE_COLUMN8 8/*The number of columns of a single character*/
+#define CN_SIZE_LINE16 16/*A accounts for the number of rows of Chinese characters*/
+#define CN_SIZE_COLUMN16 16/*The number of columns of a Chinese character*/
 
 #define OLED0561_ADD 0x78 // OLED的I2C地址（禁止修改）
 #define OLED_CMD 0x00          // OLED 指令（禁止修改）
