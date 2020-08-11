@@ -57,7 +57,46 @@ Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c \
-Src/system_stm32f1xx.c  
+Src/system_stm32f1xx.c \
+Drivers/u8g2_csrc/u8g2_box.c \
+Drivers/u8g2_csrc/u8g2_buffer.c \
+Drivers/u8g2_csrc/u8g2_bitmap.c \
+Drivers/u8g2_csrc/u8g2_circle.c \
+Drivers/u8g2_csrc/u8g2_cleardisplay.c \
+Drivers/u8g2_csrc/u8g2_d_memory.c \
+Drivers/u8g2_csrc/u8g2_d_setup.c \
+Drivers/u8g2_csrc/u8g2_font.c \
+Drivers/u8g2_csrc/u8g2_fonts.c \
+Drivers/u8g2_csrc/u8g2_hvline.c \
+Drivers/u8g2_csrc/u8g2_input_value.c \
+Drivers/u8g2_csrc/u8g2_intersection.c \
+Drivers/u8g2_csrc/u8g2_kerning.c \
+Drivers/u8g2_csrc/u8g2_line.c \
+Drivers/u8g2_csrc/u8g2_ll_hvline.c \
+Drivers/u8g2_csrc/u8g2_message.c \
+Drivers/u8g2_csrc/u8g2_polygon.c \
+Drivers/u8g2_csrc/u8g2_selection_list.c \
+Drivers/u8g2_csrc/u8g2_setup.c \
+Drivers/u8g2_csrc/u8log.c \
+Drivers/u8g2_csrc/u8log_u8g2.c \
+Drivers/u8g2_csrc/u8log_u8x8.c \
+Drivers/u8g2_csrc/u8x8_8x8.c \
+Drivers/u8g2_csrc/u8x8_byte.c \
+Drivers/u8g2_csrc/u8x8_cad.c \
+Drivers/u8g2_csrc/u8x8_capture.c \
+Drivers/u8g2_csrc/u8x8_d_a2printer.c \
+Drivers/u8g2_csrc/u8x8_d_ssd1306_128x64_noname.c \
+Drivers/u8g2_csrc/u8x8_debounce.c \
+Drivers/u8g2_csrc/u8x8_display.c \
+Drivers/u8g2_csrc/u8x8_fonts.c \
+Drivers/u8g2_csrc/u8x8_gpio.c \
+Drivers/u8g2_csrc/u8x8_input_value.c \
+Drivers/u8g2_csrc/u8x8_message.c \
+Drivers/u8g2_csrc/u8x8_selection_list.c \
+Drivers/u8g2_csrc/u8x8_setup.c \
+Drivers/u8g2_csrc/u8x8_string.c \
+Drivers/u8g2_csrc/u8x8_u8toa.c \
+Drivers/u8g2_csrc/u8x8_u16toa.c  
 
 # ASM sources
 ASM_SOURCES =  \
@@ -119,7 +158,7 @@ C_INCLUDES =  \
 -IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy \
 -IDrivers/CMSIS/Device/ST/STM32F1xx/Include \
 -IDrivers/CMSIS/Include \
--IDrivers/CMSIS/Include
+-IDrivers/u8g2_csrc/Include
 
 
 # compile gcc flags
