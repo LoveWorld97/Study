@@ -7,8 +7,8 @@
 #ifndef __USART_DEBUG_H
 #define __USART_DEBUG_H
 
-#define USART_DEBUG USART3			/*配置使用的串口*/
-#define huart_debug huart3 			/*配置使用的串口handle*/ 
+#define USART_DEBUG USART1			/*配置使用的串口*/
+#define huart_debug huart1 			/*配置使用的串口handle*/ 
 
 /*stm32cubemx配置串口后自动生成的头文件，这里包含以下*/
 #include "usart.h"

@@ -15,4 +15,5 @@ void u8g2_DrawBox_Test(u8g2_t *u8g2);
 void DrawBox_Test(u8g2_t *u8g2);
 void u8g2_DrawCircle_Test(u8g2_t *u8g2);
 void u8g2_DrawEllipse_Test(u8g2_t *u8g2);
+void u8g2_test(u8g2_t *u8g2);
 #endif // __U8G2_TEST_H

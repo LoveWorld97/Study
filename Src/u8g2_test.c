@@ -245,3 +245,14 @@ void u8g2_DrawEllipse_Test(u8g2_t *u8g2)
         u8g2_SendBuffer(u8g2);
     }
 }
+
+void u8g2_test(u8g2_t *u8g2)
+{
+    process_Test(u8g2);   //进度条测试
+    Draw_Line_Test(u8g2); //划线测试
+    font_Test(u8g2);      //字体测试
+    DrawBox_Test(u8g2);   //矩形测试
+    u8g2_DrawBox_Test(u8g2);
+    u8g2_DrawCircle_Test(u8g2);  //圆形测试
+    u8g2_DrawEllipse_Test(u8g2); //椭圆测试
+}

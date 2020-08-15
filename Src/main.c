@@ -26,6 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "u8g2_test.h"
+#include "usart_debug.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -89,6 +90,7 @@ int main(void)
     MX_GPIO_Init();
     MX_USART1_UART_Init();
     /* USER CODE BEGIN 2 */
+    uint8_t temp = 5+0x30;
     u8g2_t u8g2;
     u8g2_Setup_ssd1306_i2c_128x64_noname_f(&u8g2, U8G2_R0, u8x8_byte_sw_i2c, STM32_gpio_and_delay);
     u8g2_InitDisplay(&u8g2);
@@ -97,31 +99,16 @@ int main(void)
 
     /* Infinite loop */
     /* USER CODE BEGIN WHILE */
+    //u8g2_test(&u8g2);
     while (1)
     {
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-        // static int x = 30, y = 10;
-        // u8g2_ClearBuffer(&u8g2);
-        // u8g2_SetFont(&u8g2, u8g2_font_10x20_mf);
-        // u8g2_DrawStr(&u8g2, x, y, "u8g2");
-        // if(x >= 70)
-        // {
-        //     x = y = 0;
-        // }
-        // else
-        // {
-        //     x++;
-        //     y++;
-        // }
-        process_Test(&u8g2);   //进度条测试
-        Draw_Line_Test(&u8g2); //划线测试
-        font_Test(&u8g2);      //字体测试
-        DrawBox_Test(&u8g2);   //矩形测试
-        u8g2_DrawBox_Test(&u8g2);
-        u8g2_DrawCircle_Test(&u8g2);  //圆形测试
-        u8g2_DrawEllipse_Test(&u8g2); //椭圆测试
+        u8g2_ClearBuffer(&u8g2);
+        u8g2_SetFont(&u8g2, u8g2_font_10x20_mn);
+        //u8g2_DrawStr(&u8g2, 39, 41, "Start");
+        u8g2_DrawStr(&u8g2, 0, 20, &temp);
 
         u8g2_SendBuffer(&u8g2);
     }
